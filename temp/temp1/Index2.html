@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Salsabilah & Naja Wedding</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="opening">
+      <div data-aos="zoom-out" data-aos-duration="1500">
+        <p
+          class="text-uppercase mb-3"
+          style="letter-spacing: 5px; font-size: 0.75rem; color: #888"
+        >
+          Undangan Pernikahan
+        </p>
+        <h1 class="cursive" style="font-size: 4rem">Salsabilah & Naja</h1>
+        <p class="mb-5 text-muted small">Kami menantikan kehadiran Anda</p>
+        <button class="btn btn-premium" onclick="bukaUndangan()">
+          <i class="fas fa-heart me-2"></i> Buka Undangan
+        </button>
+      </div>
+    </div>
+
+    <nav id="mainNav">
+      <a href="#home" class="active"><i class="fas fa-home"></i>Home</a>
+      <a href="#mempelai"><i class="fas fa-heart"></i>Mempelai</a>
+      <a href="#acara"><i class="fas fa-calendar-alt"></i>Acara</a>
+      <a href="#hadiah"><i class="fas fa-gift"></i>Hadiah</a>
+      <a href="#ucapan"><i class="fas fa-comments"></i>Ucapan</a>
+    </nav>
+
+    <div class="container overflow-hidden">
+      <section id="home" class="text-center">
+        <div class="card-wedding" data-aos="fade-up">
+          <span
+            class="badge rounded-pill bg-light text-dark px-3 py-2 mb-3 border"
+            >SAVE THE DATE</span
+          >
+          <h1 class="cursive my-2" style="font-size: 3.5rem">
+            Salsabilah & Naja
+          </h1>
+          <div class="countdown">
+            <div class="cd-item">
+              <span id="days">0</span><small>Hari</small>
+            </div>
+            <div class="cd-item">
+              <span id="hours">0</span><small>Jam</small>
+            </div>
+            <div class="cd-item">
+              <span id="minutes">0</span><small>Menit</small>
+            </div>
+            <div class="cd-item">
+              <span id="seconds">0</span><small>Detik</small>
+            </div>
+          </div>
+          <p class="fw-bold mt-3 text-muted" style="letter-spacing: 2px">
+            SABTU, 06 JUNI 2026
+          </p>
+        </div>
+      </section>
+
+      <section id="mempelai" class="text-center">
+        <div class="card-wedding" data-aos="fade-up">
+          <h2 class="cursive mb-5" style="font-size: 3rem">Mempelai</h2>
+          <div class="row g-4">
+            <div class="col-12" data-aos="fade-right">
+              <h3 class="h4 fw-bold mb-1">M. Durun Naja</h3>
+              <p class="small text-muted">
+                Putra dari Bapak Jejen Jaenudin & Ibu Nia Kurniasih
+              </p>
+            </div>
+            <div class="col-12 my-2">
+              <h2 class="cursive" style="font-size: 2.5rem">&</h2>
+            </div>
+            <div class="col-12" data-aos="fade-left">
+              <h3 class="h4 fw-bold mb-1">Salsabilah Firdausah</h3>
+              <p class="small text-muted">
+                Putri dari Bapak Iden & Ibu Teti Rohaeti
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="acara" class="text-center">
+        <div class="card-wedding shadow-sm" data-aos="zoom-in">
+          <h2 class="fw-bold h4 mb-4">Waktu & Lokasi</h2>
+          <div class="row text-start justify-content-center">
+            <div class="col-md-8">
+              <div class="d-flex align-items-center mb-3">
+                <div class="icon-box me-3 text-warning">
+                  <i class="fas fa-clock fa-lg"></i>
+                </div>
+                <div><p class="mb-0 small fw-bold">Sabtu, 06 Juni 2026</p></div>
+              </div>
+              <div class="d-flex align-items-center mb-4">
+                <div class="icon-box me-3 text-warning">
+                  <i class="fas fa-map-marker-alt fa-lg"></i>
+                </div>
+                <div>
+                  <p class="mb-0 small">
+                    Pasir Angin, RT 02/RW 09, Kutawaringin, Bandung
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="btn btn-premium w-100 mt-2"
+          >
+            <i class="fas fa-directions me-2"></i> Petunjuk Lokasi
+          </a>
+        </div>
+      </section>
+
+      <section id="hadiah" class="text-center">
+        <div class="card-wedding" data-aos="fade-up">
+          <h2 class="fw-bold h4 mb-3">Wedding Gift</h2>
+          <p class="small text-muted mb-4">
+            Kehadiran doa restu Anda sudah cukup bagi kami, namun jika ingin
+            memberikan tanda kasih:
+          </p>
+          <div class="p-4 rounded-4 bg-light text-start border-dashed">
+            <div class="gift-box mb-4">
+              <div class="gift-header">
+                <img
+                  src="assets/img/LogoMandiri.png"
+                  class="gift-logo"
+                  alt="Mandiri"
+                />
+                <button class="copy-btn" onclick="copyText('1300028946997')">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+
+              <p class="h5 fw-bold mb-0">1300028946997</p>
+              <p class="small text-muted">a.n Salsabilah Firdausah</p>
+            </div>
+            <div class="gift-box pt-3 border-top">
+              <div class="gift-header">
+                <img
+                  src="assets/img/LogoDana.webp"
+                  class="gift-logo dana-logo"
+                  alt="DANA"
+                />
+
+                <button class="copy-btn" onclick="copyText('083820500028')">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+
+              <p class="h5 fw-bold mb-0">083820500028</p>
+              <p class="small text-muted">a.n M Durun Naja</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ucapan" class="text-center mb-5">
+        <div class="card-wedding" data-aos="fade-up">
+          <h2 class="fw-bold h4 mb-4">Ucapan & Doa</h2>
+          <div class="text-start">
+            <input
+              type="text"
+              id="nama"
+              class="form-control mb-3"
+              placeholder="Nama Lengkap"
+            />
+            <textarea
+              id="pesan"
+              rows="3"
+              class="form-control mb-3"
+              placeholder="Tulis doa restu Anda..."
+            ></textarea>
+            <button class="btn btn-premium w-100" id="btnKirim">
+              Kirim Ucapan
+            </button>
+          </div>
+
+          <div class="ucapan-box mt-4 text-start" id="display-ucapan">
+            <div class="border-bottom py-3">
+              <p class="mb-1 fw-bold text-dark small">Teh Caca</p>
+              <p class="small text-muted mb-0 italic">
+                "Selamat ya Caca & Naja, semoga sakinah mawaddah warahmah!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Wedding Music -->
+    <audio id="bgMusic" loop preload="auto">
+      <source src="assets/audio/wedding.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Floating Music Button -->
+    <div class="music-control" id="musicControl">
+      <i class="fas fa-music"></i>
+    </div>
+
+    <!-- js -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

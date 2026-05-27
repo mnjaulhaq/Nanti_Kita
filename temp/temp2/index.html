@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weeding Nobita ❤️ Shizuka</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="assets/img/">
+
+    <!-- bootstrap5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- gooogle font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body class ="overflow-hidden">
+    <!-- music -->
+    <audio src="assets/audio/wedding.mp3" loop class="music"></audio>
+
+    <!-- sfx door -->
+    <audio src="assets/audio/door.mp3" class = "sound-door"></audio>
+
+    <!-- door section -->
+    <div id="door-section" class="open" onclick="mulai()">
+      <h1 class="heading-door left huruf-sambung">Nobita</h1>
+      <h1 class="heading-door right huruf-sambung">Shizuka</h1>
+      <div class ="doors">
+        <div class="door left">
+          <img src="assets/img/door-left.jpg" alt="left door">
+        </div>
+        <div class="door right">
+          <img src="assets/img/door-right.jpg" alt="right door">
+        </div>
+      </div>
+    </div>
+
+    <!-- content section -->
+     <div id="content-section">
+        <!-- navbar -->
+         <ul class="nav">
+            <span class="nav-music"></span>
+            <li>
+                <a href="#acara-section">
+                    <i class="fas fa-fw fa-calendar-day"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#lokasi-section">
+                    <i class="fas fa-fw fa-location-dot"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#love-story-section">
+                    <i class="fas fa-fw fa-heart"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-item-music rotate" id="music-button"  onclick="toggleMusic(event)">
+                    <i class="fas fa-fw fa-compact-disc"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#gallery-section">
+                    <i class="fas fa-fw fa-image"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#gift-section">
+                    <i class="fas fa-fw fa-gift"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#rsvp-section">
+                    <i class="fas fa-fw fa-check-to-slot"></i>
+                </a>
+            </li>
+         </ul>
+     </div>
+
+
+
+
+
+    <!-- jquery3 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- lightbox2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js" integrity="sha512-KbRFbjA5bwNan6DvPl1ODUolvTTZ/vckssnFhka5cG80JVa5zSlRPCr055xSgU/q6oMIGhZWLhcbgIC0fyw3RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- sweetalert2 -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.all.min.js"></script>
+
+    <!-- masonary -->
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+    <!-- js -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
