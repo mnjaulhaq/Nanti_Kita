@@ -1,118 +1,117 @@
-AOS.init({ duration: 1000, once: true });
-
-// UX: Smooth Opening
-function bukaUndangan() {
-  $("#opening").addClass("hide");
-
-  const music = document.getElementById("bgMusic");
-
-  music.volume = 0.5;
-
-  // paksa play setelah interaksi user
-  let playPromise = music.play();
-
-  if (playPromise !== undefined) {
-    playPromise
-      .then(() => {
-        $("#musicControl").addClass("active");
-      })
-      .catch((error) => {
-        console.log("Audio gagal diputar:", error);
-      });
-  }
-}
-
-// UX: Active Nav on Scroll
-$(window)
-  .scroll(function () {
-    var scrollDistance = $(window).scrollTop();
-    $("section").each(function (i) {
-      if ($(this).position().top <= scrollDistance + 150) {
-        $("#mainNav a.active").removeClass("active");
-        $("#mainNav a").eq(i).addClass("active");
-      }
-    });
-  })
-  .scroll();
-
-// UI: Handle Kirim Ucapan with SweetAlert2
-$("#btnKirim").on("click", function () {
-  const nama = $("#nama").val();
-  const pesan = $("#pesan").val();
-
-  if (nama && pesan) {
-    const item = `
-                    <div class="border-bottom py-3" style="display:none">
-                        <p class="mb-1 fw-bold text-dark small">${nama}</p>
-                        <p class="small text-muted mb-0">"${pesan}"</p>
-                    </div>`;
-
-    $(item).prependTo("#display-ucapan").fadeIn(1000);
-    $("#nama").val("");
-    $("#pesan").val("");
-
-    Swal.fire({
-      title: "Terkirim!",
-      text: "Terima kasih atas doa restunya.",
-      icon: "success",
-      confirmButtonColor: "#b8916a",
-    });
-  } else {
-    Swal.fire({
-      title: "Oops!",
-      text: "Tolong isi nama dan ucapan Anda.",
-      icon: "error",
-      confirmButtonColor: "#b8916a",
-    });
-  }
-});
-
-// Countdown Logic
-const targetDate = new Date(2026, 5, 6, 8, 0, 0).getTime();
-setInterval(function () {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-  if (distance > 0) {
-    document.getElementById("days").innerHTML = Math.floor(
-      distance / (1000 * 60 * 60 * 24),
-    );
-    document.getElementById("hours").innerHTML = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-    );
-    document.getElementById("minutes").innerHTML = Math.floor(
-      (distance % (1000 * 60 * 60)) / (1000 * 60),
-    );
-    document.getElementById("seconds").innerHTML = Math.floor(
-      (distance % (1000 * 60)) / 1000,
-    );
-  }
-}, 1000);
-
-// Music Control
-window.addEventListener("DOMContentLoaded", () => {
-  const music = document.getElementById("bgMusic");
-  const musicBtn = document.getElementById("musicControl");
-
-  musicBtn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      musicBtn.classList.add("active");
+$(document).ready(function() {
+    
+    // --- 1. Ambil Parameter Nama Tamu dari URL (?to=Nama) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    if(guestName) {
+        $('#guest-name').text(guestName.replace(/\+/g, " "));
     } else {
-      music.pause();
-      musicBtn.classList.remove("active");
+        $('#guest-name').text('Tamu Undangan');
     }
-  });
+
+    // --- 2. Logika Mutlak Buka Undangan (AOS Anti-Stuck Core Fix) ---
+    $('#btnOpenInvitation').on('click', function() {
+        // Tampilkan konten utama terlebih dahulu agar posisinya terdeteksi di DOM tree
+        $('#main-content').show();
+        $('#musicToggle').css('display', 'flex');
+        
+        // Membangun ulang inisialisasi AOS setelah display kontainer induk diaktifkan
+        AOS.init({
+            once: true,
+            duration: 1000,
+            disableMutationObserver: false
+        });
+
+        // Delay mikro 100ms untuk memaksa penyegaran koordinat elemen AOS
+        setTimeout(function() {
+            AOS.refresh();
+        }, 100);
+
+        // Transisi geser cover overlay ke atas
+        $('#cover').css('transform', 'translateY(-100%)');
+        
+        // Kembalikan kemampuan overflow scroll default halaman
+        $('body').removeClass('overflow-hidden');
+
+        // Play media audio player (wedding.mp3)
+        const music = document.getElementById('weddingMusic');
+        if (music) {
+            music.play().catch(function(error) {
+                console.log("Autoplay ditolak sistem keamanan browser. Audio aktif pasca interaksi lanjutan.");
+            });
+        }
+    });
+
+    // --- 3. Floating Player Switcher Controller (Play/Pause) ---
+    $('#musicToggle').on('click', function() {
+        const music = document.getElementById('weddingMusic');
+        const icon = $(this).find('i');
+        
+        if (music.paused) {
+            music.play();
+            icon.removeClass('fa-music-slash').addClass('fa-music');
+            $(this).css('background-color', '#7a8b7b');
+        } else {
+            music.pause();
+            icon.removeClass('fa-music').addClass('fa-music-slash');
+            $(this).css('background-color', '#8f9779');
+        }
+    });
+
+    // --- 4. Sistem Hitung Mundur Acara (Countdown) ---
+    // Target Parameter format waktu: (Tahun, Bulan 0-indexed [Jan=0, Mei=4], Hari, Jam, Menit, Detik)
+    const countdownDate = new Date(2026, 4, 28, 8, 0, 0).getTime();
+
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        $('#days').text(days < 10 ? '0' + days : days);
+        $('#hours').text(hours < 10 ? '0' + hours : hours);
+        $('#minutes').text(minutes < 10 ? '0' + minutes : minutes);
+        $('#seconds').text(seconds < 10 ? '0' + seconds : seconds);
+
+        if (distance < 0) {
+            clearInterval(timer);
+            $('.countdown-sage').html('<h6 class="text-center text-success w-100 py-2">Acara Sedang Berlangsung!</h6>');
+        }
+    }, 1000);
+
+    // --- 5. Validasi Submit Formulir RSVP via SweetAlert2 ---
+    $('#rsvpForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const name = $('#nameInput').val();
+        const status = $('#statusAttendance').val();
+
+        Swal.fire({
+            title: 'Terima Kasih',
+            text: `Konfirmasi kehadiran atas nama "${name}" berhasil dikirim.`,
+            icon: 'success',
+            confirmButtonColor: '#7a8b7b',
+            confirmButtonText: 'Tutup'
+        });
+
+        $('#rsvpForm')[0].reset();
+    });
+
+    // --- 6. Smooth Scroll Mobile Bottom Navbar Links ---
+    $('.style-nav-sage a').on('click', function(e) {
+        if (this.hash !== "") {
+            e.preventDefault();
+            const hash = this.hash;
+            
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 20
+            }, 600);
+            
+            $('.style-nav-sage a').removeClass('active');
+            $(this).addClass('active');
+        }
+    });
 });
-
-// Copy Rekening
-function copyText(text) {
-  navigator.clipboard.writeText(text);
-
-  Swal.fire({
-    title: "Berhasil!",
-    text: "Nomor berhasil disalin",
-    icon: "success",
-    timer: 1500,
-    showConfirmButton: false,
-  });
-}

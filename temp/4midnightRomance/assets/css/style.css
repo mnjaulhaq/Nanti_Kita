@@ -1,181 +1,271 @@
+/* --- PALET WARNA MIDNIGHT ROMANCE (Intense Dark Luxury) --- */
 :root {
-    --pink : #f14e95;
-    --pink-muted : #fdf4f8;
-    --pink-hover : #d84686;
-    --white : #fff;
-    --grey : #ccc;
-    --light-grey : #d4d4d4;
-    --very-light-grey : #eee;
-    --dark-grey : #999;
-    --dark : #151515;
-    --black : #000;
+    --midnight-primary: #0b132b;    /* Deep Midnight Navy */
+    --midnight-dark: #050914;       /* Velvet Absolute Black */
+    --gold: #d4af37;                /* Bright Antique Gold */
+    --soft-gold: #f3e5ab;           /* Muted Champagne Gold */
+    --charcoal-card: #1c2541;       /* Dark Blue Steel */
+    --white: #ffffff;
 }
 
-html {
-    scroll-behavior : smooth;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--midnight-primary);
+    color: var(--white);
+    overflow-x: hidden;
 }
 
-* {
-    font-family: 'Work Sans', sans-serif;
+/* Tipografi Struktur Tema */
+.bride-groom-midnight {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-body.transition {
-    animation : fadeInAnimaation ease 2s;
-    animation-iteration-count : 1;
-    animation-fill-mode: forwards;
+.ampersand-midnight {
+    font-family: 'Sacramento', cursive;
+    color: var(--gold);
+    font-size: 3.2rem;
 }
 
-@keyframes fadeInAnimaation {
-    0% {
-        opacity : 0;
-    }
-    100% {
-        opacity : 1;
-    }
-
-
+.ampersand-midnight-script {
+    font-family: 'Sacramento', cursive;
+    font-size: 4.5rem;
+    color: var(--gold);
+    line-height: 1;
 }
 
-.open{
-    background-color : var(--white);
-    height : 100%;
-    width : 100%;
-    position : fixed;
-    top : 0;
-    display : flex;
-    flex-direction: column;
-    align-items : center;
-    align-content: center;
-    justify-content: center;
-    z-index: 3;
-    overflow-y: hidden;
-    transition : transform 1s ease-in-out;
+.section-title-midnight {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    color: var(--gold);
 }
 
-.doors {
-    width : 400px;
-    height : 500px;
-    position : relative;
-    cursor : pointer;
-    display : flex;
-    justify-content: space-between;
-    align-items : flex-end;
+.name-midnight {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
 }
 
-.door{
-    width : 50%;
-    height : 100%;
-    position : absolute;
-    transform-origin: center left;
-    transition : transform 1s, filter 0.5s;
-    overflow :hidden;
+.text-gold {
+    color: var(--gold) !important;
 }
 
-.door img {
-    width : 100%;
-    height : 100%;
-    object-fit: contain;
+.tracking-widest-midnight {
+    letter-spacing: 4px;
 }
 
-.door.left {
-    left : 22px;
+.small-text-midnight {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
 }
 
-.door.right {
-    right : 22px;
-    transform-origin: center right;
-}
-
-.heading-door{
-    position : absolute;
-    text-align :center;
-    width : 50%;
-    font-size : 54px;
-    margin : auto;
-}
-
-.heading-door.left {
-    left : 0;
-}
-
-.heading-door.right {
-    right : 0;
-}
-
-.huruf-sambung {
-    font-family:'Sacramento', cursive;
-}
-
-.nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    list-style-type: none;
-    display: flex;
-    background-color:var(--pink);
-    height: 80px;
-    z-index: 1;
-}
-
-.nav li {
-    flex: 1;
-}
-
-.nav li a {
-    text-decoration: none;
-    color: var(--very-light-grey);
+/* Cover penutup halaman utama */
+#cover {
+    background: linear-gradient(rgba(5, 9, 20, 0.82), rgba(5, 9, 20, 0.82)), url('https://images.unsplash.com/photo-1507504038482-7621c37b2f5d?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.guest-box-midnight {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    background-color: rgba(28, 37, 65, 0.6);
+    border-radius: 4px;
+    max-width: 440px;
+    margin: auto;
+    backdrop-filter: blur(5px);
+}
+
+/* Buttons Engine */
+.btn-midnight {
+    background-color: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 12px 32px !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-midnight:hover {
+    background-color: var(--gold);
+    color: var(--midnight-dark);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Floating Audio Media Trigger Button */
+.btn-music {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 999;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    color: var(--midnight-dark);
+    border: none;
+    box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+    display: none;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    z-index: 1;
-    position: relative;
+    transition: transform 0.3s;
 }
 
-.nav li a:hover {
+.btn-music:hover {
+    transform: scale(1.06);
+}
+
+/* Bottom Navigation Model Custom Bar */
+.style-nav-midnight {
+    max-width: 500px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(11, 19, 43, 0.9) !important;
+}
+
+.style-nav-midnight .nav-link {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 1.1rem;
+    padding: 6px 0;
+    text-align: center;
+}
+
+.style-nav-midnight .nav-link.active, 
+.style-nav-midnight .nav-link:hover {
+    color: var(--gold) !important;
+    text-shadow: 0 0 8px rgba(212,175,55,0.5);
+}
+
+/* Sections Grid Layout Setup */
+.section-padding {
+    padding: 90px 0;
+}
+
+.bg-midnight-darker {
+    background-color: var(--midnight-dark);
+}
+
+.star-divider {
+    font-size: 1.1rem;
+    color: var(--gold);
+}
+
+/* Countdown Node Block Elements */
+.countdown-midnight .cd-item-midnight {
+    background: var(--charcoal-card);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 14px 4px;
+    width: 75px;
+    text-align: center;
+}
+
+.countdown-midnight .cd-item-midnight span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+}
+
+.countdown-midnight .cd-item-midnight p {
+    margin: 4px 0 0 0;
+    font-size: 0.65rem;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+/* Mempelai Profile Frame Items */
+.avatar-frame-midnight {
+    width: 180px;
+    height: 180px;
+    border: 2px solid var(--gold);
+    padding: 4px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.profile-img-midnight {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Event Identity Layout Cards */
+.event-card-midnight {
+    background-color: var(--charcoal-card);
+    border: 1px solid rgba(212, 175, 55, 0.1) !important;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.event-card-midnight:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold) !important;
+}
+
+.icon-wrap-midnight {
+    font-size: 2.2rem;
+    color: var(--gold);
+}
+
+/* Forms input tags modification */
+.midnight-input {
+    border-radius: 0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 13px 16px;
+    background-color: var(--midnight-dark);
     color: var(--white);
 }
 
-.nav li a.nav-item-music {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    font-size: 30px;
-    top: 0;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.midnight-input:focus {
+    border-color: var(--gold);
+    box-shadow: none;
+    background-color: var(--charcoal-card);
+    color: var(--white);
 }
 
-nav .nav-music{
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-color: var(--dark);
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);   
+.midnight-input::placeholder {
+    color: rgba(255,255,255,0.3);
 }
 
-.nav li a.rotate{
-    animation: rotateAnimation 5s linear infinite;
+/* Lightbox Layout Customizations */
+.gallery-img-midnight {
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: opacity 0.3s;
 }
 
-@keyframes rotateAnimation {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+.gallery-img-midnight:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Structural Controls */
+@media screen and (max-width: 576px) {
+    .bride-groom-midnight { font-size: 2.3rem; }
+    .section-title-midnight { font-size: 1.8rem; }
+    nav { width: 95%; bottom: 10px; }
+}
+
+/* Core Interface Reset tags */
+html {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    display: none !important;
 }

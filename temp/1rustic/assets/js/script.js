@@ -1,43 +1,43 @@
 $(document).ready(function() {
     
-    // --- 1. Ambil Parameter Nama Tamu dari URL (?to=Nama) ---
+    // --- 1. Parsing Nama Tamu dari Parameter URL (?to=Nama) ---
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get('to');
     if(guestName) {
-        $('#guest-name').text(guestName.replace(/\+/g, " "));
+        $('#guest-name').text(guestName);
     } else {
         $('#guest-name').text('Tamu Undangan');
     }
 
-    // --- 2. Logika Mutlak Buka Undangan (AOS Anti-Stuck Core Fix) ---
+    // --- 2. Logika Mutlak Buka Undangan (Solusi Mengatasi Stuck AOS) ---
     $('#btnOpenInvitation').on('click', function() {
-        // Tampilkan konten utama terlebih dahulu agar dimensinya dihitung oleh DOM tree
+        // 1. Tampilkan kontainer utama terlebih dahulu agar posisinya terbaca di DOM tree
         $('#main-content').show();
         $('#musicToggle').css('display', 'flex');
         
-        // Membangun ulang inisialisasi AOS setelah display kontainer induk diaktifkan
+        // 2. Jalankan atau bangun fungsi AOS setelah display: none mati
         AOS.init({
             once: true,
             duration: 1000,
             disableMutationObserver: false
         });
 
-        // Delay mikro 100ms untuk memaksa penyegaran koordinat elemen AOS
+        // 3. Beri sedikit jeda mikro lalu paksa refresh perhitungan piksel koordinat AOS
         setTimeout(function() {
             AOS.refresh();
         }, 100);
 
-        // Transisi geser cover overlay ke atas
+        // 4. Geser tabir cover utama ke atas menggunakan CSS transform
         $('#cover').css('transform', 'translateY(-100%)');
         
-        // Kembalikan kemampuan overflow scroll default halaman
+        // 5. Kembalikan kemampuan overflow scroll pada body halaman
         $('body').removeClass('overflow-hidden');
 
-        // Play media audio player (wedding.mp3)
+        // 6. Jalankan pemutaran music media player
         const music = document.getElementById('weddingMusic');
         if (music) {
             music.play().catch(function(error) {
-                console.log("Autoplay ditolak sistem keamanan browser. Audio aktif pasca interaksi lanjutan.");
+                console.log("Autoplay ditolak oleh kebijakan keamanan browser, musik diputar manual.");
             });
         }
     });
@@ -50,16 +50,17 @@ $(document).ready(function() {
         if (music.paused) {
             music.play();
             icon.removeClass('fa-music-slash').addClass('fa-music');
-            $(this).css('background-color', '#3a322d');
+            $(this).css('background-color', '#c4a482');
         } else {
             music.pause();
             icon.removeClass('fa-music').addClass('fa-music-slash');
-            $(this).css('background-color', '#a98467');
+            $(this).css('background-color', '#a1887f');
         }
     });
 
     // --- 4. Sistem Hitung Mundur Acara (Countdown) ---
-    const countdownDate = new Date(2026, 4, 28, 8, 0, 0).getTime(); // Target: 28 Mei 2026
+    // Target Parameter format waktu: (Tahun, Bulan 0-indexed [Jan=0, Mei=4], Hari, Jam, Menit, Detik)
+    const countdownDate = new Date(2026, 4, 28, 8, 0, 0).getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
@@ -77,7 +78,7 @@ $(document).ready(function() {
 
         if (distance < 0) {
             clearInterval(timer);
-            $('.countdown-japandi').html('<h6 class="text-center tracking-widest w-100 py-2">ACARA SEDANG BERLANGSUNG</h6>');
+            $('.countdown').html('<h5 class="text-center text-muted w-100 py-2">Acara Sedang Berlangsung!</h5>');
         }
     }, 1000);
 
@@ -89,18 +90,18 @@ $(document).ready(function() {
         const status = $('#statusAttendance').val();
 
         Swal.fire({
-            title: 'TERIMA KASIH',
-            text: `Konfirmasi kehadiran atas nama "${name}" berhasil dikirim.`,
-            icon: 'success',
-            confirmButtonColor: '#3a322d',
-            confirmButtonText: 'TUTUP'
+          title: 'Terima Kasih!',
+          text: `Konfirmasi atas nama ${name} berhasil dikirim (${status}).`,
+          icon: 'success',
+          confirmButtonColor: '#4a3b32',
+          confirmButtonText: 'Selesai'
         });
 
         $('#rsvpForm')[0].reset();
     });
 
     // --- 6. Smooth Scroll Mobile Bottom Navbar Links ---
-    $('.style-nav-japandi a').on('click', function(e) {
+    $('.style-nav a').on('click', function(e) {
         if (this.hash !== "") {
             e.preventDefault();
             const hash = this.hash;
@@ -109,7 +110,7 @@ $(document).ready(function() {
                 scrollTop: $(hash).offset().top - 20
             }, 600);
             
-            $('.style-nav-japandi a').removeClass('active');
+            $('.style-nav a').removeClass('active');
             $(this).addClass('active');
         }
     });

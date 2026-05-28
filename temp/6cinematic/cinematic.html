@@ -1,118 +1,222 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Weeding Nobita ❤️ Shizuka</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romeo & Juliet - The Wedding Film</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.png">
 
-    <!-- favicon -->
-    <link rel="icon" href="assets/img/">
-
-    <!-- bootstrap5 -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- gooogle font -->
+    <!-- Google Fonts: Kombinasi Serif Teatrikal & Sans-Serif Kontemporer -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@200;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
 
-    <!-- AOS -->
+    <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- fontawesome -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- css -->
+    <!-- Lightbox2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css" integrity="sha512-4Cg5FvEwVwK7asXvAdMv9SgR1A9Hsm1LhB1g9y965lXUshK8GvQu8A4LhYvYkFhI1H/X0j/O8b/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body class ="overflow-hidden">
-    <!-- music -->
-    <audio src="assets/audio/wedding.mp3" loop class="music"></audio>
+</head>
+<body class="overflow-hidden">
 
-    <!-- sfx door -->
-    <audio src="assets/audio/door.mp3" class = "sound-door"></audio>
+    <!-- Audio Background -->
+    <audio src="assets/audio/wedding.mp3" loop class="music" id="weddingMusic"></audio>
 
-    <!-- door section -->
-    <div id="door-section" class="open" onclick="mulai()">
-      <h1 class="heading-door left huruf-sambung">Nobita</h1>
-      <h1 class="heading-door right huruf-sambung">Shizuka</h1>
-      <div class ="doors">
-        <div class="door left">
-          <img src="assets/img/door-left.jpg" alt="left door">
+    <!-- Floating Music Toggle -->
+    <button id="musicToggle" class="btn-music"><i class="fas fa-volume-up"></i></button>
+
+    <!-- COVER / WELCOME SCREEN (THEATRICAL POSTER OVERLAY) -->
+    <section id="cover" class="d-flex align-items-center justify-content-center text-center text-white">
+        <div class="cover-content" data-aos="fade-up" data-aos-duration="1500">
+            <span class="cinema-tag mb-2">A CINEMATIC LOVE STORY DIRECTED BY DESTINY</span>
+            <h1 class="bride-groom-cinema">ROMEO & JULIET</h1>
+            <p class="cinema-premiere">PREMIERING ON 28 . 05 . 2026</p>
+            
+            <div class="guest-box-cinema my-4 p-4">
+                <p class="m-0 text-uppercase tracking-widest text-muted small-text">EXCLUSIVE TICKET FOR:</p>
+                <h4 id="guest-name" class="my-2 text-gold">-</h4>
+                <p class="m-0 small-text text-white-50">Be part of our greatest unforgettable scene</p>
+            </div>
+            
+            <button class="btn btn-cinema px-4 py-2" id="btnOpenInvitation">
+                <i class="fas fa-ticket-alt me-2"></i>ENTER THEATER
+            </button>
         </div>
-        <div class="door right">
-          <img src="assets/img/door-right.jpg" alt="right door">
-        </div>
-      </div>
+    </section>
+
+    <!-- MAIN INTERFACE -->
+    <div id="main-content" style="display:none;">
+        
+        <!-- FLOATING BOTTOM NAVBAR -->
+        <nav class="navbar navbar-expand navbar-light fixed-bottom shadow-lg bg-obsidian rounded-0 mx-auto style-nav-cinema">
+            <ul class="navbar-nav nav-justified w-100">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home"><i class="fas fa-film"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#couple"><i class="fas fa-clapperboard"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#event"><i class="fas fa-video"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery"><i class="fas fa-images"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#rsvp"><i class="fas fa-ticket-alt"></i></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- HOME SECTION -->
+        <section id="home" class="section-padding text-center text-white">
+            <div class="container" data-aos="fade-up">
+                <h3 class="cinema-sub-header">NOW PLAYING</h3>
+                <h2 class="section-title-cinema">OUR STORY BEGINS</h2>
+                <p class="lead tracking-widest text-muted my-3">THE COUNTDOWN TO SCREENING</p>
+                
+                <div class="countdown-cinema d-flex justify-content-center gap-2 my-4">
+                    <div class="cd-item-cinema"><span id="days">00</span><p>Days</p></div>
+                    <div class="cd-item-cinema"><span id="hours">00</span><p>Hours</p></div>
+                    <div class="cd-item-cinema"><span id="minutes">00</span><p>Mins</p></div>
+                    <div class="cd-item-cinema"><span id="seconds">00</span><p>Secs</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COUPLE SECTION -->
+        <section id="couple" class="section-padding bg-cinema-dark text-center text-white">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-5" data-aos="fade-up">
+                        <div class="avatar-wrapper-cinema mb-4 mx-auto">
+                            <img src="assets/img/groom.jpg" alt="Groom" class="img-fluid profile-img-cinema" onerror="this.src='https://placehold.co/250x350/000/fff?text=The+Groom'">
+                        </div>
+                        <h3 class="name-cinema">ROMEO MONTAGUE</h3>
+                        <p class="text-gold tracking-widest small">CO-STARRING WITH THE BRIDE</p>
+                    </div>
+                    <div class="col-md-2" data-aos="zoom-in">
+                        <span class="ampersand-cinema">&</span>
+                    </div>
+                    <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+                        <div class="avatar-wrapper-cinema mb-4 mx-auto">
+                            <img src="assets/img/bride.jpg" alt="Bride" class="img-fluid profile-img-cinema" onerror="this.src='https://placehold.co/250x350/222/fff?text=The+Bride'">
+                        </div>
+                        <h3 class="name-cinema">JULIET CAPULET</h3>
+                        <p class="text-gold tracking-widest small">CO-STARRING WITH THE GROOM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT SECTION -->
+        <section id="event" class="section-padding text-center text-white">
+            <div class="container">
+                <h2 class="section-title-cinema mb-2" data-aos="fade-up">PRODUCTION SCHEDULE</h2>
+                <p class="text-muted tracking-widest small mb-5" data-aos="fade-up">THURSDAY, 28 MAY 2026</p>
+                
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-5" data-aos="fade-right">
+                        <div class="card event-card-cinema p-4 shadow-lg border-0 text-white">
+                            <h4 class="fw-bold tracking-widest text-gold mb-3">ACT I: THE MATRIMONY</h4>
+                            <p class="small text-muted mb-2"><i class="far fa-clock me-2"></i>08.00 AM - 10.00 AM</p>
+                            <p class="small mb-0 text-white-50">Grand Paramount Cathedral, Bandung</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5" data-aos="fade-left">
+                        <div class="card event-card-cinema p-4 shadow-lg border-0 text-white">
+                            <h4 class="fw-bold tracking-widest text-gold mb-3">ACT II: THE GALA DINNER</h4>
+                            <p class="small text-muted mb-2"><i class="far fa-clock me-2"></i>11.00 AM - END</p>
+                            <p class="small mb-0 text-white-50">The Grand Theater Studio Hall, Bandung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION (WIDESCREEN FILM GRID) -->
+        <section id="gallery" class="section-padding bg-cinema-dark text-white">
+            <div class="container">
+                <h2 class="section-title-cinema text-center mb-5" data-aos="fade-up">BEHIND THE SCENES</h2>
+                <div class="row grid g-3" data-masonry='{"percentPosition": true}' data-aos="fade-up">
+                    <div class="col-6 col-md-4 mb-3 grid-item">
+                        <a href="https://placehold.co/800x450/111/fff?text=Scene+1" data-lightbox="wedding-gallery" data-title="Scene 1">
+                            <img src="https://placehold.co/800x450/111/fff?text=Scene+1" class="img-fluid rounded-0 shadow-sm frame-cinema" alt="Gallery 1">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 mb-3 grid-item">
+                        <a href="https://placehold.co/800x450/333/fff?text=Scene+2" data-lightbox="wedding-gallery" data-title="Scene 2">
+                            <img src="https://placehold.co/800x450/333/fff?text=Scene+2" class="img-fluid rounded-0 shadow-sm frame-cinema" alt="Gallery 2">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 mb-3 grid-item">
+                        <a href="https://placehold.co/800x533/222/fff?text=Scene+3" data-lightbox="wedding-gallery" data-title="Scene 3">
+                            <img src="https://placehold.co/800x533/222/fff?text=Scene+3" class="img-fluid rounded-0 shadow-sm frame-cinema" alt="Gallery 3">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 mb-3 grid-item">
+                        <a href="https://placehold.co/800x450/000/fff?text=Scene+4" data-lightbox="wedding-gallery" data-title="Scene 4">
+                            <img src="https://placehold.co/800x450/000/fff?text=Scene+4" class="img-fluid rounded-0 shadow-sm frame-cinema" alt="Gallery 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP SECTION -->
+        <section id="rsvp" class="section-padding text-center text-white">
+            <div class="container" style="max-width: 500px;">
+                <h2 class="section-title-cinema mb-2" data-aos="fade-up">BOOK YOUR TICKET</h2>
+                <p class="text-muted tracking-widest small mb-4" data-aos="fade-up">CONFIRM YOUR ATTENDANCE IN OUR CAST LIST</p>
+                
+                <form id="rsvpForm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-3">
+                        <input type="text" class="form-control cinema-input" id="nameInput" placeholder="Guest Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control cinema-input" id="guestCount" placeholder="Seat Quantity (Max 5)" min="1" max="5" required>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select cinema-input" id="statusAttendance" required>
+                            <option value="" disabled selected>Will You Attend the Premiere?</option>
+                            <option value="Hadir">Confirm Attendance</option>
+                            <option value="Tidak Hadir">Regretfully Decline</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-cinema-submit w-100 py-3">CONFIRM RESERVATION</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center py-4 bg-black text-white-50 mb-5">
+            <div class="container">
+                <p class="m-0 small tracking-widest">&copy; 2026 ROMEO & JULIET PRODUCTION. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+
     </div>
 
-    <!-- content section -->
-     <div id="content-section">
-        <!-- navbar -->
-         <ul class="nav">
-            <span class="nav-music"></span>
-            <li>
-                <a href="#acara-section">
-                    <i class="fas fa-fw fa-calendar-day"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#lokasi-section">
-                    <i class="fas fa-fw fa-location-dot"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#love-story-section">
-                    <i class="fas fa-fw fa-heart"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-item-music rotate" id="music-button"  onclick="toggleMusic(event)">
-                    <i class="fas fa-fw fa-compact-disc"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#gallery-section">
-                    <i class="fas fa-fw fa-image"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#gift-section">
-                    <i class="fas fa-fw fa-gift"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#rsvp-section">
-                    <i class="fas fa-fw fa-check-to-slot"></i>
-                </a>
-            </li>
-         </ul>
-     </div>
-
-
-
-
-
-    <!-- jquery3 -->
+    <!-- Vendor Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <!-- bootstrap5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-    <!-- AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- lightbox2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js" integrity="sha512-KbRFbjA5bwNan6DvPl1ODUolvTTZ/vckssnFhka5cG80JVa5zSlRPCr055xSgU/q6oMIGhZWLhcbgIC0fyw3RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- sweetalert2 -->
-    <script src="
-    https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.all.min.js"></script>
-
-    <!-- masonary -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 
-    <!-- js -->
+    <!-- Custom Script -->
     <script src="assets/js/script.js"></script>
-  </body>
+</body>
 </html>
