@@ -1,62 +1,83 @@
 :root {
-  --bg-color: #fbf9f6; /* Warna dasar cream lembut */
-  --dark-text: #2a2a2a; /* Warna teks utama (Charcoal) */
-  --accent-gold: #d4af37; /* Warna aksen emas */
-  --btn-premium: #8c6a5e; /* Dusty Rose untuk tombol premium */
+  --bg-color: #2f3e36;       /* Hijau gelap sesuai file gambar */
+  --light-text: #f7f7f7;     /* Putih gading dari Canva */
+  --card-bg: #ffffff;        /* Latar belakang kartu tetap bersih */
+  --accent-gold: #e2c295;     /* Muted Gold soft untuk penyeimbang tema */
+  --btn-primary-border: #f7f7f7;
 }
 
 body {
   background-color: var(--bg-color);
   font-family: "Montserrat", sans-serif;
-  color: var(--dark-text);
+  color: var(--light-text);
 }
 
-/* --- NAVBAR BRANDING "NANTI KITA" --- */
+/* --- NAVBAR BRANDING & LOGO FIX --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(47, 62, 54, 0.95); /* Menyesuaikan hijau baru */
   backdrop-filter: blur(10px);
-  padding: 15px 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 40px;
+  border-bottom: 1px solid rgba(247, 247, 247, 0.1);
   transition: all 0.3s ease;
 }
-.navbar-brand-text {
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 3px;
-  color: var(--dark-text);
+
+.navbar-brand-logo {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  text-transform: uppercase;
 }
+
+/* Mengatur tinggi logo agar proporsional di bar navigasi */
+.nav-logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
 .item {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--dark-text);
+  color: var(--light-text);
   text-decoration: none;
   padding: 10px 20px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
+
 .item-bi {
-  color: var(--dark-text);
+  color: var(--light-text);
   padding: 10px;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
+
 .item:hover,
 .item-bi:hover {
   color: var(--accent-gold);
   text-decoration: none;
 }
 
+/* Desain tombol menu hamburger pada perangkat mobile */
+.navbar-toggler {
+  border-color: rgba(247, 247, 247, 0.3);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28247, 247, 247, 0.85%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 @media (max-width: 767px) {
+  .navbar {
+    padding: 10px 20px;
+  }
   .top-item {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(247, 247, 247, 0.1);
     margin-top: 10px;
     padding-top: 10px;
   }
@@ -68,20 +89,23 @@ body {
 /* --- HERO HEADER --- */
 .hero-catalog {
   text-align: center;
-  padding-top: 150px;
+  padding-top: 140px;
   padding-bottom: 30px;
 }
+
 .hero-catalog h2 {
   font-family: "Cinzel", serif;
   font-weight: 700;
-  font-size: 2.0rem;
+  font-size: 2.2rem;
   letter-spacing: 3px;
   margin-bottom: 10px;
+  color: var(--light-text);
 }
+
 .hero-catalog p {
   font-family: "Playfair Display", serif;
   font-style: italic;
-  color: #777;
+  color: rgba(247, 247, 247, 0.7);
   font-size: 1.0rem;
 }
 
@@ -91,9 +115,9 @@ body {
   border: none;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -101,7 +125,7 @@ body {
 
 .template-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(140, 106, 94, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-img-wrapper {
@@ -143,13 +167,14 @@ body {
   letter-spacing: 1px;
   margin-bottom: 15px;
   text-align: center;
+  color: #2f3e36; /* Warna teks judul kartu menggunakan hijau gelap */
 }
 
 .edition-label {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--accent-gold);
+  color: #a98467; /* Warna kontras hangat untuk label edisi khusus */
   font-weight: 500;
   margin-bottom: 4px;
   text-align: center;
@@ -172,27 +197,30 @@ body {
   width: 100%;
 }
 
+/* Tombol Lihat Basic (Gaya Outline Bersih) */
 .template-btns .btn-primary {
   background-color: transparent;
-  color: var(--dark-text);
-  border: 1px solid #ddd;
+  color: #2f3e36;
+  border: 1px solid #ced4da;
 }
 
 .template-btns .btn-primary:hover {
-  background-color: var(--dark-text);
+  background-color: #2f3e36;
   color: #ffffff;
-  border-color: var(--dark-text);
+  border-color: #2f3e36;
 }
 
+/* Tombol Lihat Premium (Solid Hijau Komunitas) */
 .template-btns .btn-secondary {
-  background-color: var(--btn-premium);
-  border: none;
-  color: #ffffff;
+  background-color: var(--bg-color); /* Memakai variabel #2f3e36 */
+  border: 1px solid var(--bg-color);
+  color: var(--light-text);
 }
 
 .template-btns .btn-secondary:hover {
-  background-color: #735449;
-  box-shadow: 0 4px 12px rgba(140, 106, 94, 0.3);
+  background-color: #1e2924;
+  border-color: #1e2924;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* --- FLOATING WHATSAPP --- */
