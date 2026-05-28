@@ -33,7 +33,7 @@ body {
 
 /* Mengatur tinggi logo agar proporsional di bar navigasi */
 .nav-logo-img {
-  height: 70px;
+  height: 90px;
   width: auto;
   object-fit: contain;
 }
