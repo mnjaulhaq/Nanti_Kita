@@ -74,7 +74,7 @@ body {
 .hero-catalog h2 {
   font-family: "Cinzel", serif;
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   letter-spacing: 3px;
   margin-bottom: 10px;
 }
@@ -82,7 +82,7 @@ body {
   font-family: "Playfair Display", serif;
   font-style: italic;
   color: #777;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
 }
 
 /* --- TEMPLATE CARD EDITORIAL --- */
