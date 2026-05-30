@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #2f3e36;       /* Hijau gelap sesuai file gambar */
-  --light-text: #f7f7f7;     /* Putih gading dari Canva */
-  --card-bg: #ffffff;        /* Latar belakang kartu tetap bersih */
-  --accent-gold: #e2c295;     /* Muted Gold soft untuk penyeimbang tema */
+  --bg-color: #2f3e36; /* Hijau gelap sesuai file gambar */
+  --light-text: #f7f7f7; /* Putih gading dari Canva */
+  --card-bg: #ffffff; /* Latar belakang kartu tetap bersih */
+  --accent-gold: #e2c295; /* Muted Gold soft untuk penyeimbang tema */
   --btn-primary-border: #f7f7f7;
 }
 
@@ -33,9 +33,76 @@ body {
 
 /* Mengatur tinggi logo agar proporsional di bar navigasi */
 .nav-logo-img {
-  height: 90px;
+  height: 65px;
   width: auto;
   object-fit: contain;
+}
+
+/* --- MENU DROPDOWN CUSTOM NANTIKITA (FIX NO JUMPING) --- */
+
+/* 1. Kondisi awal boks dropdown (Tersembunyi & Ukuran Sudah Fix 200px) */
+.nantikita-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 40px; /* Pas presisi di bawah tombol garis tiga aa */
+  width: 200px;
+  background-color: rgba(47, 62, 54, 0.98); /* Warna hijau katalog NantiKita */
+  padding: 20px 15px;
+  border-radius: 12px; /* Melengkung modern */
+  border: 1px solid rgba(247, 247, 247, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1050;
+}
+
+/* 2. Trigger Tampil pas tombol diklik */
+.nantikita-menu.show {
+  display: block;
+}
+
+/* 3. Mengatur susunan menu vertikal dan Rata Kanan semenjak milidetik pertama */
+.nantikita-menu .navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Semua teks dan elemen dipaksa ke kanan */
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 4. Styling Teks Link Menu (Langsung Kunci Ukuran Kecil) */
+.nantikita-menu .item {
+  color: rgba(247, 247, 247, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+  text-align: right;
+}
+
+/* Warna pas menu aktif atau di-hover pointer */
+.nantikita-menu .item:hover,
+.nantikita-menu .item.active {
+  color: #bfa37a; /* Warna aksen emas */
+}
+
+/* 5. Mengatur Jarak Icon Sosmed (IG & WA) agar Sejajar Rapi di Kanan */
+.nantikita-menu .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.nantikita-menu .item-bi i {
+  color: rgba(247, 247, 247, 0.8);
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.nantikita-menu .item-bi i:hover {
+  color: #bfa37a;
 }
 
 .item {
@@ -106,7 +173,7 @@ body {
   font-family: "Playfair Display", serif;
   font-style: italic;
   color: rgba(247, 247, 247, 0.7);
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
 
 /* --- TEMPLATE CARD EDITORIAL --- */

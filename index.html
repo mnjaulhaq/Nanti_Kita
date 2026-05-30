@@ -31,36 +31,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg">
+    <nav class="navbar fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand-logo" href="index.html">
-          <img src="LogoNantikita.jpeg" alt="Logo Nanti Kita" class="nav-logo-img" />
+          <img
+            src="LogoNantikita.jpeg"
+            alt="Logo Nanti Kita"
+            class="nav-logo-img"
+          />
         </a>
 
         <button
-          class="navbar-toggler"
+          class="navbar-toggler custom-hamburger"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          onclick="toggleMenu()"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item top-item">
-              <a class="item active" aria-current="page" href="index.html">Produk</a>
+        <div class="nantikita-menu" id="myDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="item active" href="index.html">Katalog Template</a>
             </li>
             <li class="nav-item">
-              <a class="item" aria-current="page" href="template.html">Template</a>
+              <a class="item" href="#harga">Harga & Paket</a>
             </li>
-            <li class="nav-item d-flex align-items-center">
+            <li class="nav-item">
+              <a class="item" href="#cara-order">Cara Order</a>
+            </li>
+            <li class="nav-item social-icons">
               <a
                 class="item-bi"
-                href="https://www.instagram.com/nantikitadigitalwedding?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/nantikitadigitalwedding"
                 target="_blank"
                 ><i class="bi bi-instagram"></i
               ></a>
@@ -74,16 +77,15 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav>  
 
     <div class="hero-catalog">
-      <h2>Daftar Template</h2>
+      <h2>Katalog Template</h2>
       <p>Temukan desain undangan digital impian Anda bersama Nanti Kita</p>
     </div>
 
     <div class="container my-4">
       <div class="row g-4">
-
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
@@ -96,10 +98,16 @@
               <div class="template-title">RUSTIC</div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/1rustic/rustic.html" class="btn btn-primary">Lihat Basic</a>
+                  <a href="temp/1rustic/rustic.html" class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/1rustic/rustic-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/1rustic/rustic-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -121,10 +129,16 @@
               </div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/2modern/modern.html" class="btn btn-primary">Lihat Basic</a>
+                  <a href="temp/2modern/modern.html" class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/2modern/modern-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/2modern/modern-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -143,10 +157,18 @@
               <div class="template-title">SAGE GREEN & BOTANICAL</div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/3sage&botanical/sage.html" class="btn btn-primary">Lihat Basic</a>
+                  <a
+                    href="temp/3sage&botanical/sage.html"
+                    class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/3sage&botanical/sage-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/3sage&botanical/sage-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -165,10 +187,18 @@
               <div class="template-title">MIDNIGHT ROMANCE</div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/4midnightRomance/midnight.html" class="btn btn-primary">Lihat Basic</a>
+                  <a
+                    href="temp/4midnightRomance/midnight.html"
+                    class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/4midnightRomance/midnight-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/4midnightRomance/midnight-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -187,10 +217,16 @@
               <div class="template-title">JAPANDI STYLE</div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/5japandi/japandi.html" class="btn btn-primary">Lihat Basic</a>
+                  <a href="temp/5japandi/japandi.html" class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/5japandi/japandi-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/5japandi/japandi-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -209,10 +245,18 @@
               <div class="template-title">CINEMATIC</div>
               <div>
                 <div class="template-btns">
-                  <a href="temp/6cinematic/cinematic.html" class="btn btn-primary">Lihat Basic</a>
+                  <a
+                    href="temp/6cinematic/cinematic.html"
+                    class="btn btn-primary"
+                    >Lihat Basic</a
+                  >
                 </div>
                 <div class="template-btns">
-                  <a href="temp/6cinematic/cinematic-premium.html" class="btn btn-secondary">Lihat Premium</a>
+                  <a
+                    href="temp/6cinematic/cinematic-premium.html"
+                    class="btn btn-secondary"
+                    >Lihat Premium</a
+                  >
                 </div>
               </div>
             </div>
@@ -232,5 +276,6 @@
         alt="WhatsApp"
       />
     </a>
+    <script src="script.js"></script>
   </body>
 </html>
