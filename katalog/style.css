@@ -1,8 +1,20 @@
+@font-face {
+  font-family: "Tan Nimbus";
+  /* Sesuaikan nama file di bawah ini dengan nama file asli font aa ya a */
+  src: url("fonts/tan-nimbus.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --bg-color: #2f3e36; /* Hijau gelap sesuai file gambar */
-  --light-text: #f7f7f7; /* Putih gading dari Canva */
-  --card-bg: #ffffff; /* Latar belakang kartu tetap bersih */
-  --accent-gold: #e2c295; /* Muted Gold soft untuk penyeimbang tema */
+  --bg-color: #2f3e36;
+  --light-text: #f7f7f7;
+  --card-bg: #f7f7f7;
+  --accent-gold: #e2c295;
   --btn-primary-border: #f7f7f7;
 }
 
@@ -12,145 +24,212 @@ body {
   color: var(--light-text);
 }
 
-/* --- NAVBAR BRANDING & LOGO FIX --- */
+/* --- BASE NAVBAR CONFIGURATION --- */
 .navbar {
+  background-color: rgba(47, 62, 54, 0.96);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 10px 40px;
+  border-bottom: 1px solid rgba(247, 247, 247, 0.08);
+}
+
+.container-navbar-custom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(47, 62, 54, 0.95); /* Menyesuaikan hijau baru */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 10px 40px;
-  border-bottom: 1px solid rgba(247, 247, 247, 0.1);
-  transition: all 0.3s ease;
+  position: relative;
+  max-width: 100%;
 }
 
-.navbar-brand-logo {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-/* Mengatur tinggi logo agar proporsional di bar navigasi */
 .nav-logo-img {
-  height: 65px;
+  height: 52px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: normal;
 }
 
-/* --- MENU DROPDOWN CUSTOM NANTIKITA (FIX NO JUMPING) --- */
+/* --- MENU TENGAH KAPSUL DENGAN EFEK SLIDING --- */
+.navbar-center-menu {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 0.04);
+  border: 1px solid rgba(247, 247, 247, 0.08);
+  padding: 6px;
+  border-radius: 30px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
 
-/* 1. Kondisi awal boks dropdown (Tersembunyi & Ukuran Sudah Fix 200px) */
-.nantikita-menu {
-  display: none;
+/* KAPSUL PUTIH TRANSPARAN YANG BAKAL GESER HALUS */
+.nav-bg-slider {
   position: absolute;
-  top: 100%;
-  right: 40px; /* Pas presisi di bawah tombol garis tiga aa */
-  width: 200px;
-  background-color: rgba(47, 62, 54, 0.98); /* Warna hijau katalog NantiKita */
-  padding: 20px 15px;
-  border-radius: 12px; /* Melengkung modern */
-  border: 1px solid rgba(247, 247, 247, 0.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  z-index: 1050;
+  height: calc(100% - 12px);
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  left: 6px;
+  width: 0;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: none;
+  z-index: 1;
 }
 
-/* 2. Trigger Tampil pas tombol diklik */
-.nantikita-menu.show {
+/* Mematikan animasi sementara saat class init aktif (Biar ga blink pas di-load) */
+.nav-bg-slider.no-animation {
+  transition: none !important;
+}
+
+.center-menu-item {
+  color: rgba(247, 247, 247, 0.65);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: color 0.25s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.center-menu-item:hover {
+  color: #fff;
+}
+
+.center-menu-item.active {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.center-menu-item.active::after {
+  display: none;
+}
+
+/* --- TOMBOL HAMBURGER KAPSUL --- */
+.custom-hamburger-capsule {
+  background-color: rgba(247, 247, 247, 0.06);
+  border: 1px solid rgba(247, 247, 247, 0.15);
+  padding: 6px 10px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-hamburger-capsule:hover {
+  background-color: rgba(247, 247, 247, 0.12);
+}
+
+.custom-hamburger-capsule .menu-icon {
+  color: rgba(247, 247, 247, 0.9);
+  font-size: 1.2rem;
+  margin: 0;
   display: block;
 }
 
-/* 3. Mengatur susunan menu vertikal dan Rata Kanan semenjak milidetik pertama */
-.nantikita-menu .navbar-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Semua teks dan elemen dipaksa ke kanan */
-  gap: 14px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+/* --- DROPDOWN BOX MODIFIKASI PREMIUM (GLOBAL GLASSMORPHISM) --- */
+.nantikita-menu {
+  display: block;
+  position: absolute;
+  top: 75px;
+  right: 40px; /* Jarak aman dari kanan di layar laptop */
+
+  /* Efek Kaca Transparan Blur Premium */
+  background-color: rgba(47, 62, 54, 0.75) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(247, 247, 247, 0.12);
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+  min-width: 190px;
+
+  /* Animasi Meluncur Halus (Fade & Slide Down) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* 4. Styling Teks Link Menu (Langsung Kunci Ukuran Kecil) */
-.nantikita-menu .item {
-  color: rgba(247, 247, 247, 0.8);
-  font-size: 0.95rem;
-  font-weight: 500;
+/* Ketika aktif (ditambah class .show oleh script.js) */
+.nantikita-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Item Link Menu di dalam Dropdown */
+.dropdown-item-link {
+  display: block;
+  color: rgba(247, 247, 247, 0.7);
   text-decoration: none;
-  transition: color 0.2s ease;
-  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  text-align: right;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+}
+
+/* Efek Hover / Ketika Menu Dropdown Aktif */
+.dropdown-item-link:hover,
+.dropdown-item-link.active {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding-right: 18px; /* Efek teks sedikit bergeser ke kiri pas di-hover */
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(247, 247, 247, 0.1);
+  margin: 12px 0;
+}
+
+/* Bagian Teks Kecil 'HUBUNGI KAMI:' */
+.dropdown-social-wrapper span {
+  font-size: 0.75rem;
+  color: rgba(247, 247, 247, 0.4);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  /* TAMBAHKAN INI SEBAGAI PENGAMAN */
+  display: block;
+  width: 100%;
   text-align: right;
 }
 
-/* Warna pas menu aktif atau di-hover pointer */
-.nantikita-menu .item:hover,
-.nantikita-menu .item.active {
-  color: #bfa37a; /* Warna aksen emas */
-}
-
-/* 5. Mengatur Jarak Icon Sosmed (IG & WA) agar Sejajar Rapi di Kanan */
-.nantikita-menu .social-icons {
+.social-icons-box {
   display: flex;
-  gap: 15px;
-  margin-top: 5px;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
-.nantikita-menu .item-bi i {
+.social-icons-box .item-bi {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
   color: rgba(247, 247, 247, 0.8);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.nantikita-menu .item-bi i:hover {
-  color: #bfa37a;
-}
-
-.item {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--light-text);
-  text-decoration: none;
-  padding: 10px 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.item-bi {
-  color: var(--light-text);
-  padding: 10px;
+.social-icons-box .item-bi i {
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  color: rgba(247, 247, 247, 0.8);
 }
 
-.item:hover,
-.item-bi:hover {
-  color: var(--accent-gold);
-  text-decoration: none;
-}
-
-/* Desain tombol menu hamburger pada perangkat mobile */
-.navbar-toggler {
-  border-color: rgba(247, 247, 247, 0.3);
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28247, 247, 247, 0.85%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    padding: 10px 20px;
-  }
-  .top-item {
-    border-top: 1px solid rgba(247, 247, 247, 0.1);
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-  .nav-item {
-    margin-bottom: 5px;
-  }
+.social-icons-box .item-bi:hover,
+.social-icons-box .item-bi:hover i {
+  color: #bfa37a;
 }
 
 /* --- HERO HEADER --- */
@@ -161,16 +240,16 @@ body {
 }
 
 .hero-catalog h2 {
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 2.2rem;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
+  font-family: "Tan Nimbus", serif !important;
+  font-weight: normal;
+  font-size: 2.6rem;
+  letter-spacing: 0px !important;
+  margin-bottom: 12px;
   color: var(--light-text);
 }
 
 .hero-catalog p {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-style: italic;
   color: rgba(247, 247, 247, 0.7);
   font-size: 1rem;
@@ -183,7 +262,9 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s ease;
   background-color: var(--card-bg);
   height: 100%;
   display: flex;
@@ -212,19 +293,12 @@ body {
   transform: scale(1.05);
 }
 
-@media (max-width: 576px) {
-  .template-card img {
-    height: auto;
-    aspect-ratio: 3/4;
-  }
-}
-
-.template-card .p-3 {
+.template-card .p-2-custom {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 10px 10px 10px !important;
+  padding: 20px 10px 10px 10px;
 }
 
 .template-title {
@@ -234,14 +308,14 @@ body {
   letter-spacing: 1px;
   margin-bottom: 15px;
   text-align: center;
-  color: #2f3e36; /* Warna teks judul kartu menggunakan hijau gelap */
+  color: #2f3e36;
 }
 
 .edition-label {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 0.85rem;
-  color: #a98467; /* Warna kontras hangat untuk label edisi khusus */
+  color: #a98467;
   font-weight: 500;
   margin-bottom: 4px;
   text-align: center;
@@ -264,7 +338,6 @@ body {
   width: 100%;
 }
 
-/* Tombol Lihat Basic (Gaya Outline Bersih) */
 .template-btns .btn-primary {
   background-color: transparent;
   color: #2f3e36;
@@ -277,9 +350,8 @@ body {
   border-color: #2f3e36;
 }
 
-/* Tombol Lihat Premium (Solid Hijau Komunitas) */
 .template-btns .btn-secondary {
-  background-color: var(--bg-color); /* Memakai variabel #2f3e36 */
+  background-color: var(--bg-color);
   border: 1px solid var(--bg-color);
   color: var(--light-text);
 }
@@ -288,6 +360,315 @@ body {
   background-color: #1e2924;
   border-color: #1e2924;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================================
+   1. MODIFIKASI PREMIUM - SECTION HARGA & PAKET
+   ========================================================================= */
+.price-card {
+  background-color: var(--card-bg); /* Mengikuti #f7f7f7 gading lembut aa */
+  border-radius: 24px;
+  padding: 35px 28px;
+  border: 1px solid rgba(47, 62, 54, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+
+  /* Animasi Transisi Halus untuk Semua Efek */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+}
+
+/* Efek Hover: Kartu Terangkat, Bayangan Membesar & Border Berubah */
+.price-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  border-color: rgba(47, 62, 54, 0.15);
+}
+
+/* Modifikasi Khusus Kartu Premium Berwarna Hijau Gelap Eksklusif */
+.price-card.popular {
+  background-color: #24302a !important;
+  border: 1px solid rgba(226, 194, 149, 0.3);
+}
+
+/* Hover Khusus Kartu Premium: Glow Emas Lembut */
+.price-card.popular:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 20px 45px rgba(226, 194, 149, 0.15);
+}
+
+/* Lencana Paling Populer */
+.popular-badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-gold);
+  color: #2f3e36;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 0 0 12px 12px; /* Gaya modern lencana gantung */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(226, 194, 149, 0.25);
+}
+
+/* Header Harga & Animasi Judul Paket */
+.price-header {
+  text-align: center;
+  border-bottom: 1px solid rgba(47, 62, 54, 0.06);
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+}
+
+.price-card.popular .price-header {
+  border-bottom-color: rgba(247, 247, 247, 0.08);
+}
+
+.package-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #2f3e36;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.price-card:hover .package-name {
+  color: #a98467; /* Berubah warna estetis saat di-hover */
+}
+
+.price-card.popular .package-name {
+  color: var(--accent-gold);
+}
+
+.price-card.popular:hover .package-name {
+  color: #ffffff;
+}
+
+.price-amount {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  color: #2f3e36;
+}
+
+.price-card.popular .price-amount {
+  color: #f7f7f7;
+}
+
+.price-sub {
+  font-size: 0.8rem;
+  color: #a98467;
+  margin-top: 4px;
+}
+
+/* List Fitur dengan Animasi Hover Centang */
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.price-features li {
+  font-size: 0.9rem;
+  color: #4a5750;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+/* Efek baris teks sedikit maju saat kartu aktif di-hover */
+.price-card:hover .price-features li {
+  transform: translateX(2px);
+}
+
+.price-card.popular .price-features li {
+  color: rgba(247, 247, 247, 0.85);
+}
+
+.price-features li i.bi-check-circle-fill {
+  color: #2f3e36;
+  transition: transform 0.3s ease;
+}
+
+.price-card:hover .price-features li i.bi-check-circle-fill {
+  transform: scale(1.15); /* Ikon centang membesar tipis */
+}
+
+.price-card.popular .price-features li i.bi-check-circle-fill {
+  color: var(--accent-gold);
+}
+
+/* Tombol Paket 1 - Outline Style */
+.btn-price-outline {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background-color: transparent;
+  color: #2f3e36;
+  border: 1px solid #2f3e36;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-price-outline:hover {
+  background-color: #2f3e36;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(47, 62, 54, 0.2);
+}
+
+/* Tombol Paket 2 - Solid Gold Premium Style */
+.btn-price-solid {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background-color: var(--accent-gold);
+  color: #2f3e36;
+  border: 1px solid var(--accent-gold);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(226, 194, 149, 0.15);
+}
+
+.btn-price-solid:hover {
+  background-color: #ffffff; /* Berubah jadi putih bersih kontras mewah */
+  border-color: #ffffff;
+  color: #2f3e36;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================================================
+   2. MODIFIKASI PREMIUM - SECTION CARA ORDER
+   ========================================================================= */
+.step-card {
+  background-color: var(--card-bg);
+  border-radius: 22px;
+  padding: 35px 26px;
+  border: 1px solid rgba(47, 62, 54, 0.04);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Hover Langkah: Mengembang Elegan */
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+  border-color: rgba(226, 194, 149, 0.3);
+}
+
+/* Modifikasi Khusus Langkah Tengah (Highlight) */
+.step-card.highlight {
+  border: 1px dashed var(--accent-gold);
+  background-color: rgba(247, 247, 247, 0.97);
+}
+.step-card.highlight:hover {
+  border-style: solid;
+}
+
+/* Angka Langkah Jumbo Eksklusif & Animasi */
+.step-number {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin-bottom: 18px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Efek Angka Membesar & Bergeser Halus pas Boks Di-hover */
+.step-card:hover .step-number {
+  transform: scale(1.1) rotate(-3deg);
+  color: #2f3e36;
+}
+
+.step-card.highlight .step-number {
+  color: #2f3e36;
+}
+.step-card.highlight:hover .step-number {
+  color: var(--accent-gold);
+}
+
+.step-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2f3e36;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.step-card:hover .step-title {
+  color: #a98467;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: #5c6b62;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================================
+   3. RESPONSIVE PENYESUAIAN KHUSUS HP (MAX-WIDTH: 767px)
+   ========================================================================= */
+@media (max-width: 767px) {
+  .price-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+  .price-amount {
+    font-size: 1.7rem;
+  }
+  .price-features li {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .step-card {
+    padding: 24px 20px;
+    flex-direction: row; /* Tampilan baris horizontal rapi di HP */
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    font-size: 2.2rem;
+    margin-bottom: 0;
+  }
+
+  .step-card:hover .step-number {
+    transform: scale(1.05); /* Dikurangi rotasinya di HP biar ga nabrak */
+  }
 }
 
 /* --- FLOATING WHATSAPP --- */
@@ -314,4 +695,143 @@ body {
 .whatsapp-float img {
   width: 30px;
   height: 30px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES (OPTIMALISASI HP 2 KOLOM) --- */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  .navbar-center-menu {
+    display: none;
+  }
+  .mobile-menu-links {
+    display: block;
+  }
+  .nantikita-menu {
+    right: 20px; /* Lebih mepet ke kanan mengikuti padding navbar HP */
+    top: 70px;
+    width: 200px;
+  }
+
+  .hero-catalog {
+    /* Atur ulang padding: atas 110px biar ga ketutup navbar fixed, 
+       kiri-kanan kasih 30px biar teksnya otomatis kedorong masuk ke tengah */
+    padding: 110px 30px 20px 30px !important;
+  }
+
+  .hero-catalog h2 {
+    /* Perkecil dikit ukuran teks judulnya di HP biar proporsional */
+    font-size: 1.6rem !important;
+    letter-spacing: 1px !important;
+    line-height: 1.3;
+  }
+
+  .hero-catalog p {
+    /* Perkecil dikit sub-judulnya biar ga kepanjangan di layar sempit */
+    font-size: 0.85rem !important;
+    line-height: 1.4;
+  }
+
+  /* Optimalisasi container card di HP */
+  .container-katalog-custom {
+    /* Naikkan dari 8px ke 24px biar boksnya agak masuk ke tengah dan punya space kosong di kiri-kanan */
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Jarak antar boks kartu kiri-kanan (horizontal gap) dikurangi dikit 
+     biar boksnya gak makin kelangsingan akibat container yang masuk ke tengah */
+  .row.g-3 {
+    --bs-gutter-x: 10px !important; /* Perkecil jarak antar card kiri-kanan */
+    --bs-gutter-y: 12px !important; /* Jarak antar card atas-bawah */
+  }
+  /* Mencegah gambar memanjang kaku, pakai aspect-ratio */
+  .template-card img {
+    height: auto !important;
+    aspect-ratio: 3/4 !important;
+  }
+
+  /* Perkecil padding boks konten di dalam card HP */
+  .template-card .p-2-custom {
+    padding: 12px 5px 5px 5px !important;
+  }
+
+  /* Perkecil font judul agar pas 1 baris & tidak merusak boks */
+  .template-title {
+    font-size: 9.5px !important;
+    letter-spacing: 0px !important;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    word-break: break-word;
+    text-align: center;
+  }
+
+  .edition-label {
+    font-size: 8px !important;
+    margin-bottom: 2px;
+    letter-spacing: 0px !important;
+    text-align: center;
+  }
+
+  /* Atur tombol menumpuk rapi dengan font mini */
+  .template-btns {
+    margin-top: 4px;
+    margin-bottom: 2px;
+  }
+
+  .template-btns .btn {
+    padding: 5px 2px !important;
+    font-size: 8px !important;
+    letter-spacing: 0px;
+  }
+  .template-btns .btn-primary {
+    background-color: transparent;
+    color: #2f3e36;
+    border: 1px solid #2f3e36;
+  }
+}
+
+/* --- DI DALAM @media (min-width: 768px) --- */
+@media (min-width: 768px) {
+  /* Pastikan tombol hamburger tetep muncul di laptop */
+  .custom-hamburger-capsule {
+    display: flex !important;
+  }
+
+  /* Atur posisi dropdwon pas di laptop biar presisi di bawah tombol */
+  .nantikita-menu {
+    right: 40px; /* Menyesuaikan padding navbar desktop aa */
+    top: 75px;
+  }
+
+  /* Sisa kode bawaan aa di bawahnya biarkan saja */
+  .mobile-menu-links {
+    display: none; /* Karena di laptop udah ada menu tengah, links menu di dropdown disembunyikan, cuma nampilin sosmed */
+  }
+  .dropdown-social-wrapper {
+    padding: 5px;
+  }
+}
+/* --- AMUNISI EFEK HOVER OTOMATIS PAS DI-SCROLL --- */
+
+/* Class bantuan untuk memicu efek hover Paket Biasa via JS */
+.price-card.auto-hover,
+.step-card.auto-hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18) !important;
+  border-color: rgba(47, 62, 54, 0.15) !important;
+}
+
+/* Class bantuan khusus untuk pemicu efek hover Paket Premium (Glow Emas) */
+.price-card.popular.auto-hover {
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 20px 45px rgba(226, 194, 149, 0.25) !important;
+}
+
+/* Pastikan transisinya luwes pas efeknya masuk dan keluar */
+.price-card, .step-card {
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }

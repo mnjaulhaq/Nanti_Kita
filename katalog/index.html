@@ -24,15 +24,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body id="top">
     <nav class="navbar fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid container-navbar-custom">
         <a class="navbar-brand-logo" href="index.html">
           <img
             src="Logo Nantikita.png"
@@ -41,51 +41,60 @@
           />
         </a>
 
+        <div class="navbar-center-menu">
+          <div class="nav-bg-slider"></div>
+
+          <a class="center-menu-item" href="#">Katalog Template</a>
+          <a class="center-menu-item" href="#harga">Harga & Paket</a>
+          <a class="center-menu-item" href="#cara-order">Cara Order</a>
+        </div>
+
         <button
-          class="navbar-toggler custom-hamburger"
+          class="custom-hamburger-capsule"
           type="button"
           onclick="toggleMenu()"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="bi bi-list menu-icon"></i>
         </button>
 
         <div class="nantikita-menu" id="myDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="item active" href="index.html">Katalog Template</a>
-            </li>
-            <li class="nav-item">
-              <a class="item" href="#harga">Harga & Paket</a>
-            </li>
-            <li class="nav-item">
-              <a class="item" href="#cara-order">Cara Order</a>
-            </li>
-            <li class="nav-item social-icons">
+          <div class="mobile-menu-links">
+            <a class="dropdown-item-link" href="#katalog">Katalog Template</a>
+            <a class="dropdown-item-link" href="#harga">Harga & Paket</a>
+            <a class="dropdown-item-link" href="#cara-order">Cara Order</a>
+            <div class="dropdown-divider"></div>
+          </div>
+
+          <div class="dropdown-social-wrapper">
+            <span>Hubungi Kami:</span>
+            <div class="social-icons-box">
               <a
                 class="item-bi"
                 href="https://www.instagram.com/nantikitadigitalwedding"
                 target="_blank"
-                ><i class="bi bi-instagram"></i
-              ></a>
+              >
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
               <a
                 class="item-bi"
                 href="https://wa.me/628976337088"
                 target="_blank"
-                ><i class="bi bi-whatsapp"></i
-              ></a>
-            </li>
-          </ul>
+              >
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>  
+    </nav>
 
     <div class="hero-catalog">
       <h2>Katalog Template</h2>
       <p>Temukan desain undangan digital impian Anda bersama Nanti Kita</p>
     </div>
 
-    <div class="container my-4">
-      <div class="row g-4">
+    <div id="katalog" class="container my-5 container-katalog-custom">
+      <div class="row g-3">
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
@@ -94,9 +103,9 @@
                 alt="rustic"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div class="template-title">RUSTIC</div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a href="temp/1rustic/rustic.html" class="btn btn-primary"
                     >Lihat Basic</a
@@ -122,12 +131,12 @@
                 alt="Modern Minimalist"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div>
                 <div class="edition-label">Special Edition :</div>
                 <div class="template-title">MODERN MINIMALIST</div>
               </div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a href="temp/2modern/modern.html" class="btn btn-primary"
                     >Lihat Basic</a
@@ -153,9 +162,9 @@
                 alt="sage green & botanical"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div class="template-title">SAGE GREEN & BOTANICAL</div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a
                     href="temp/3sage&botanical/sage.html"
@@ -183,9 +192,9 @@
                 alt="Midnight Romance"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div class="template-title">MIDNIGHT ROMANCE</div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a
                     href="temp/4midnightRomance/midnight.html"
@@ -213,9 +222,9 @@
                 alt="Japandi Style"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div class="template-title">JAPANDI STYLE</div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a href="temp/5japandi/japandi.html" class="btn btn-primary"
                     >Lihat Basic</a
@@ -241,9 +250,9 @@
                 alt="Cinematic"
               />
             </div>
-            <div class="p-3">
+            <div class="p-2-custom">
               <div class="template-title">CINEMATIC</div>
-              <div>
+              <div class="button-group-wrapper">
                 <div class="template-btns">
                   <a
                     href="temp/6cinematic/cinematic.html"
@@ -259,6 +268,198 @@
                   >
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="harga" class="container my-5 container-katalog-custom">
+      <div
+        class="hero-catalog text-center"
+        style="padding-top: 40px; padding-bottom: 40px"
+      >
+        <h2
+          style="
+            font-family: &quot;Tan Nimbus&quot;, serif !important;
+            font-size: 2.2rem;
+          "
+        >
+          HARGA & PAKET
+        </h2>
+        <p
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: rgba(247, 247, 247, 0.7);
+          "
+        >
+          Pilih paket terbaik untuk momen spesial Anda bersama Nanti Kita
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center align-items-stretch">
+        <div class="col-12 col-md-5 col-lg-4 scroll-trigger">
+          <div class="price-card">
+            <div class="price-header">
+              <div class="package-name">PAKET BASIC</div>
+              <div class="price-amount">Rp 99.000</div>
+              <div class="price-sub">Aktif 3 Bulan</div>
+            </div>
+            <div class="price-body">
+              <ul class="price-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Custom Nama Tamu
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Teks & Protokol
+                  Kesehatan
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Navigasi Peta Lokasi
+                  (Google Maps)
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Galeri Foto (Maks 5
+                  Foto)
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Fitur Angpao Digital /
+                  Rekening
+                </li>
+                <li>
+                  <i class="bi bi-x-circle-fill text-muted"></i> Tanpa
+                  Background Musik Custom
+                </li>
+                <li>
+                  <i class="bi bi-x-circle-fill text-muted"></i> Tanpa Fitur
+                  RSVP & Ucapan
+                </li>
+              </ul>
+            </div>
+            <div class="price-footer">
+              <a
+                href="https://wa.me/628976337088?text=Halo%20Admin%20Nanti%20Kita,%20saya%20mau%20order%20Paket%20Basic"
+                class="btn btn-price-outline"
+                target="_blank"
+                >Pilih Paket</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-5 col-lg-4 scroll-trigger">
+          <div class="price-card popular">
+            <div class="popular-badge">PASTILAH PILIH INI</div>
+            <div class="price-header">
+              <div class="package-name">PAKET PREMIUM</div>
+              <div class="price-amount">Rp 149.000</div>
+              <div class="price-sub">Aktif Selamanya / 1 Tahun</div>
+            </div>
+            <div class="price-body">
+              <ul class="price-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Semua Fitur Paket
+                  Basic
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Masa Aktif Lebih Lama
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Galeri Foto & Video
+                  Tanpa Batas
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Background Musik Bebas
+                  Request
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Fitur RSVP &
+                  Konfirmasi Kehadiran
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Kolom Ucapan & Doa
+                  Restu (Live)
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Fitur Spesial
+                  Story/Kisah Cinta
+                </li>
+              </ul>
+            </div>
+            <div class="price-footer">
+              <a
+                href="https://wa.me/628976337088?text=Halo%20Admin%20Nanti%20Kita,%20saya%20mau%20order%20Paket%20Premium"
+                class="btn btn-price-solid"
+                target="_blank"
+                >Order Sekarang</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cara-order" class="container my-5 container-katalog-custom">
+      <div
+        class="hero-catalog text-center"
+        style="padding-top: 40px; padding-bottom: 40px"
+      >
+        <h2
+          style="
+            font-family: &quot;Tan Nimbus&quot;, serif !important;
+            font-size: 2.2rem;
+          "
+        >
+          CARA ORDER
+        </h2>
+        <p
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: rgba(247, 247, 247, 0.7);
+          "
+        >
+          Proses mudah dan cepat untuk mewujudkan undangan digital impian Anda
+        </p>
+      </div>
+
+      <div class="row g-4 step-timeline-row">
+        <div class="col-12 col-md-4 scroll-trigger">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <div class="step-title">Pilih Desain</div>
+              <p class="step-desc">
+                Cari dan tentukan template undangan favorit Anda di katalog
+                atas, lalu klik tombol paket yang diinginkan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 scroll-trigger">
+          <div class="step-card highlight">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <div class="step-title">Isi Data & Musik</div>
+              <p class="step-desc">
+                Konsultasikan via WhatsApp untuk pengisian data mempelai, galeri
+                foto, lokasi acara, hingga request musik latar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 scroll-trigger">
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <div class="step-title">Undangan Siap Kirim</div>
+              <p class="step-desc">
+                Proses pengerjaan cepat. Undangan digital premium Anda siap
+                disebarkan ke seluruh daftar tamu spesial.
+              </p>
             </div>
           </div>
         </div>
