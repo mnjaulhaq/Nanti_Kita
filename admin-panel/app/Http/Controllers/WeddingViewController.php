@@ -7,20 +7,17 @@ use Illuminate\Http\Request;
 
 class WeddingViewController extends Controller
 {
-    public function show(Request $request, $slug)
+    public function show($slug, Request $request)
     {
-        // 1. Cari data pernikahan berdasarkan slug di URL. Jika tidak ada, otomatis memunculkan error 404 (Not Found)
         $wedding = Wedding::where('slug', $slug)->firstOrFail();
+        $tamuDariUrl = $request->query('to');
 
-        // 2. Tangkap nama tamu dari parameter '?to=Nama+Tamu'
-        // Jika parameter ?to kosong/tidak ada di URL, maka default-nya adalah 'Tamu Undangan'
-        $namaTamu = $request->query('to', 'Tamu Undangan');
+        if (empty($tamuDariUrl) || strtolower($tamuDariUrl) == 'namatamu') {
+            $tamuDariUrl = null;
+        }
 
-        // 3. Ambil data semua ucapan/RSVP yang sudah masuk untuk pernikahan ini (untuk ditampilkan di buku tamu)
         $rsvps = $wedding->rsvps()->latest()->get();
 
-        // 4. Arahkan ke folder view berdasarkan nama tema yang dipilih di admin panel
-        // Contoh: jika tema = rustic, maka akan memanggil view: resources/views/themes/rustic.blade.php
-        return view('themes.' . $wedding->tema, compact('wedding', 'namaTamu', 'rsvps'));
+        return view('themes.rustic', compact('wedding', 'tamuDariUrl', 'rsvps'));
     }
 }
