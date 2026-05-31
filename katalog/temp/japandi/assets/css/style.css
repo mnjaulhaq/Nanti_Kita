@@ -1,0 +1,247 @@
+/* --- PALET WARNA JAPANDI STYLE (Wabi-Sabi Neutral) --- */
+:root {
+    --japandi-dark: #3a322d;      /* Dark Oak Wood / Cokelat Tua */
+    --japandi-clay: #a98467;      /* Terracotta Muted / Tanah Liat */
+    --japandi-bg: #f5f2eb;        /* Soft Rice Warm Cream */
+    --japandi-light-box: #ede8dc; /* Scandi Light Ash Gray */
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--japandi-bg);
+    color: var(--japandi-dark);
+    overflow-x: hidden;
+}
+
+/* Tipografi Struktur */
+.bride-groom-japandi {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    font-size: 3.2rem;
+    color: var(--japandi-dark);
+    letter-spacing: 2px;
+}
+
+.section-title-japandi {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: var(--japandi-dark);
+    letter-spacing: 2px;
+}
+
+.name-japandi {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--japandi-dark);
+}
+
+.ampersand-japandi {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    color: var(--japandi-clay);
+    line-height: 1;
+}
+
+.text-clay {
+    color: var(--japandi-clay) !important;
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+/* Cover Screen Penutup Atas */
+#cover {
+    background: linear-gradient(rgba(245, 242, 235, 0.92), rgba(245, 242, 235, 0.92)), url('https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.japandi-ornament {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--japandi-clay);
+    transform: rotate(45deg);
+}
+
+.japandi-date {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+.guest-box-japandi {
+    border: 1px solid var(--japandi-light-box);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Buttons */
+.btn-japandi {
+    background-color: var(--japandi-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 14px 36px !important;
+    transition: all 0.3s ease;
+}
+
+.btn-japandi:hover {
+    background-color: var(--japandi-clay);
+    color: var(--white);
+}
+
+/* Floating Music Player Trigger Widget */
+.btn-music {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--japandi-dark);
+    color: var(--white);
+    border: none;
+    box-shadow: 0 4px 12px rgba(58, 50, 45, 0.15);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.btn-music:hover {
+    transform: scale(1.06);
+}
+
+/* Bottom Navigation Rounded Pill Custom */
+.style-nav-japandi {
+    max-width: 480px;
+    border: 1px solid rgba(169, 132, 103, 0.15);
+}
+
+.style-nav-japandi .nav-link {
+    color: #999;
+    font-size: 1rem;
+    padding: 6px 0;
+    text-align: center;
+}
+
+.style-nav-japandi .nav-link.active, 
+.style-nav-japandi .nav-link:hover {
+    color: var(--japandi-dark) !important;
+    font-weight: 600;
+}
+
+/* Content Sections Base */
+.section-padding {
+    padding: 85px 0;
+}
+
+.bg-japandi-light {
+    background-color: var(--japandi-light-box);
+}
+
+/* Countdown Node Block Geometrics */
+.countdown-japandi .cd-item-japandi {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 12px 6px;
+    width: 72px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.countdown-japandi .cd-item-japandi span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--japandi-dark);
+    display: block;
+    line-height: 1;
+}
+
+.countdown-japandi .cd-item-japandi p {
+    margin: 4px 0 0 0;
+    font-size: 0.65rem;
+    color: var(--japandi-clay);
+    text-transform: uppercase;
+}
+
+/* Mempelai Photo Frame Structural */
+.avatar-frame-japandi {
+    width: 190px;
+    height: 240px;
+    overflow: hidden;
+    background-color: var(--white);
+    border: 8px solid var(--white);
+    border-radius: 60px 4px 60px 4px; /* Unik organik khas asimetris Scandi-Jepang */
+    box-shadow: 0 10px 25px rgba(58, 50, 45, 0.06);
+}
+
+.profile-img-japandi {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Event Cards Layout Modifiers */
+.event-card-japandi {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+    border: 1px solid rgba(169, 132, 103, 0.06) !important;
+    transition: transform 0.3s ease;
+}
+
+.event-card-japandi:hover {
+    transform: translateY(-4px);
+}
+
+/* Form Modifiers tags */
+.japandi-input {
+    border-radius: 4px;
+    border: 1px solid #d3cbbf;
+    padding: 13px 16px;
+    background-color: #faf9f6;
+    font-size: 0.85rem;
+}
+
+.japandi-input:focus {
+    border-color: var(--japandi-dark);
+    box-shadow: 0 0 0 0.25rem rgba(58, 50, 45, 0.08);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 576px) {
+    .bride-groom-japandi { font-size: 2.3rem; }
+    .section-title-japandi { font-size: 1.8rem; }
+    .countdown-japandi .cd-item-japandi { width: 62px; }
+    nav { width: 95%; bottom: 10px; }
+}
+
+/* Global Clean Scroll */
+html {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    display: none !important;
+}
