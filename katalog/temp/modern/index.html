@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>The Wedding of Nathan & Kayla</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- COVER SCREEN OVERLAY -->
+    <div id="opening">
+      <div data-aos="fade-up" data-aos-duration="1200" class="text-center">
+        <p class="txt-sub-title">WEDDING INVITATION</p>
+        <h1 class="txt-mempelai-cover">Nathan & Kayla</h1>
+        <div class="guest-info">
+          <p>KEPADA YTH.</p>
+          <h2 id="guest-name">-</h2>
+        </div>
+        <button class="btn btn-modern-primary" onclick="bukaUndangan()">
+          <i class="fas fa-envelope-open me-2"></i> BUKA UNDANGAN
+        </button>
+      </div>
+    </div>
+
+    <!-- STICKY NAVIGATION -->
+    <nav id="mainNav">
+      <a href="#home" class="active"><i class="fas fa-home"></i><br />HOME</a>
+      <a href="#mempelai"><i class="fas fa-heart"></i><br />MEMPELAI</a>
+      <a href="#acara"><i class="fas fa-calendar-alt"></i><br />ACARA</a>
+      <a href="#hadiah"><i class="fas fa-gift"></i><br />HADIAH</a>
+      <a href="#ucapan"><i class="fas fa-comments"></i><br />UCAPAN</a>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="container-fluid p-0 overflow-hidden">
+      <!-- HOME SECTION -->
+      <section
+        id="home"
+        class="panel-section d-flex align-items-center justify-content-center"
+      >
+        <div class="modern-card text-center" data-aos="fade-up">
+          <p class="txt-sub-title">SAVE THE DATE</p>
+          <div class="my-4">
+            <h2 class="serif-display">Nathaniel Putra</h2>
+            <p class="serif-italic my-2">&</p>
+            <h2 class="serif-display">Kayla Anastasya</h2>
+          </div>
+
+          <div class="countdown-modern my-4">
+            <div class="cd-box">
+              <span id="days">00</span><small>Hari</small>
+            </div>
+            <div class="cd-divider"></div>
+            <div class="cd-box">
+              <span id="hours">00</span><small>Jam</small>
+            </div>
+            <div class="cd-divider"></div>
+            <div class="cd-box">
+              <span id="minutes">00</span><small>Menit</small>
+            </div>
+            <div class="cd-divider"></div>
+            <div class="cd-box">
+              <span id="seconds">00</span><small>Detik</small>
+            </div>
+          </div>
+          <p class="txt-sub-title" style="letter-spacing: 2px">
+            SABTU, 08 AGUSTUS 2026
+          </p>
+        </div>
+      </section>
+
+      <!-- MEMPELAI SECTION -->
+      <section id="mempelai" class="panel-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8" data-aos="fade-up">
+              <div class="modern-card text-center">
+                <p class="txt-sub-title mb-5">THE HAPPY COUPLE</p>
+                <div class="mempelai-bio">
+                  <h3 class="serif-display mb-2">M. Nathaniel Putra, S.T.</h3>
+                  <p class="small text-muted">
+                    Putra Sulung dari Bapak Hermawan & Ibu Sarah Amanda
+                  </p>
+                </div>
+                <div class="serif-italic my-4">&</div>
+                <div class="mempelai-bio">
+                  <h3 class="serif-display mb-2">Kayla Anastasya, S.Ak.</h3>
+                  <p class="small text-muted">
+                    Putri Bungsu dari Bapak Adnan Wijaya & Ibu Rina Lestari
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- AUDIO VENDORS -->
+    <audio id="bgMusic" loop preload="auto">
+      <source src="assets/audio/wedding2.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="music-control" id="musicControl">
+      <i class="fas fa-music"></i>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

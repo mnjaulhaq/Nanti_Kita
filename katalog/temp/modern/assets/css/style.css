@@ -1,280 +1,176 @@
-/* --- PALET WARNA MODERN MINIMALIST (High Contrast Monochrome) --- */
+/* =========================================================================
+   MODERN MINIMALIST MONOCHROME PALETTE - REVISED CLEAN VERSION
+   ========================================================================= */
+
 :root {
-    --modern-dark: #111111;      /* Deep Jet Black */
-    --modern-gray: #555555;      /* Slate Gray */
-    --modern-light-bg: #fafafa;  /* Off-White */
-    --modern-border: #e0e0e0;    /* Light Gray Line */
-    --white: #ffffff;
+  --inv-dark: #1a1a1a;
+  --inv-gray: #666666;
+  --inv-light-bg: #f9f9f6;
+  --inv-border: #e5e5e0;
+  --white: #ffffff;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--white);
-    color: var(--modern-dark);
-    overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--inv-light-bg);
+  color: var(--inv-dark);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* Typography Modifiers */
-.bride-groom-modern {
-    font-weight: 700;
-    font-size: 3.2rem;
-    letter-spacing: 6px;
-    color: var(--white);
-    line-height: 1.2;
+.serif-display {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  color: var(--inv-dark);
 }
 
-.ampersand-modern {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--modern-border);
+.serif-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--inv-gray);
 }
 
-.section-title-modern {
-    font-weight: 700;
-    font-size: 2.2rem;
-    letter-spacing: 4px;
-    color: var(--modern-dark);
+.txt-sub-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: var(--inv-gray);
+  text-transform: uppercase;
 }
 
-.name-modern {
-    font-weight: 700;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    margin-top: 15px;
+/* Opening Cover Screen Fix */
+#opening {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-.tracking-widest {
-    letter-spacing: 3px;
+#opening.hide {
+  transform: translateY(-100%);
 }
 
-.fs-7 {
-    font-size: 0.8rem;
+.txt-mempelai-cover {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin: 20px 0;
 }
 
-/* Cover Overlay Interface */
-#cover {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+.btn-modern-primary {
+  background-color: var(--inv-dark);
+  color: white;
+  border: 1px solid var(--inv-dark);
+  padding: 14px 35px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 0;
+  transition: 0.3s;
 }
 
-.modern-tag {
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    display: block;
-    color: rgba(255, 255, 255, 0.6);
+/* Cards Box */
+.modern-card {
+  background: var(--white);
+  border: 1px solid var(--inv-border);
+  padding: 40px 20px;
+  border-radius: 0;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
 }
 
-.modern-date {
-    font-size: 1.2rem;
-    letter-spacing: 8px;
-    margin-top: 15px;
-    font-weight: 300;
+.panel-section {
+  min-height: 100vh;
+  padding: 80px 0;
+  background-color: var(--inv-light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.guest-box-modern {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.05);
-    max-width: 400px;
-    margin: auto;
+/* Navigation */
+nav {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--inv-border);
+  display: flex;
+  padding: 10px;
+  z-index: 1000;
 }
 
-.small-text {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
+nav a {
+  text-decoration: none;
+  color: #999;
+  font-size: 0.6rem;
+  text-align: center;
+  flex: 1;
 }
 
-/* Buttons */
-.btn-modern {
-    background-color: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
-    border-radius: 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    padding: 12px 30px !important;
-    transition: all 0.3s ease;
+nav a i {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
 }
 
-.btn-modern:hover {
-    background-color: var(--white);
-    color: var(--modern-dark);
+nav a.active, nav a:hover {
+  color: var(--inv-dark);
 }
 
-.btn-modern-submit {
-    background-color: var(--modern-dark);
-    color: var(--white);
-    border: none;
-    border-radius: 0;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    transition: background-color 0.3s;
+/* Countdown */
+.countdown-modern {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
-.btn-modern-submit:hover {
-    background-color: #333;
-    color: var(--white);
+.cd-box span {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  display: block;
+  color: var(--inv-dark);
 }
 
-/* Floating Music Action Widget */
-.btn-music {
-    position: fixed;
-    bottom: 85px;
-    right: 20px;
-    z-index: 999;
-    width: 45px;
-    height: 45px;
-    border-radius: 0;
-    background-color: var(--modern-dark);
-    color: var(--white);
-    border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    display: none;
-    align-items: center;
-    justify-content: center;
+.cd-box small {
+  font-size: 0.6rem;
+  color: #999;
+  text-transform: uppercase;
 }
 
-/* Navigation Layout Custom Modern */
-.style-nav-modern {
-    max-width: 550px;
-    padding: 5px 0;
+.cd-divider {
+  width: 1px;
+  height: 35px;
+  background-color: var(--inv-border);
 }
 
-.style-nav-modern .nav-link {
-    color: rgba(255, 255, 255, 0.5) !important;
-    font-size: 1.1rem;
-    padding: 10px 0;
-    transition: color 0.3s;
-}
-
-.style-nav-modern .nav-link.active, 
-.style-nav-modern .nav-link:hover {
-    color: var(--white) !important;
-}
-
-/* Content Sections Structuring */
-.section-padding {
-    padding: 90px 0;
-}
-
-.bg-modern-light {
-    background-color: var(--modern-light-bg);
-}
-
-.minimal-line {
-    width: 40px;
-    height: 2px;
-    background-color: var(--modern-dark);
-}
-
-/* Countdown Block Geometrics */
-.countdown-modern .cd-item-modern {
-    border: 1px solid var(--modern-border);
-    background: var(--white);
-    padding: 15px 5px;
-    width: 75px;
-    text-align: center;
-}
-
-.countdown-modern .cd-item-modern span {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--modern-dark);
-    display: block;
-    line-height: 1;
-}
-
-.countdown-modern .cd-item-modern p {
-    margin: 4px 0 0 0;
-    font-size: 0.65rem;
-    color: var(--modern-gray);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Couple Profiles Box Grid */
-.avatar-wrapper-modern {
-    width: 200px;
-    height: 260px;
-    overflow: hidden;
-    background-color: var(--modern-border);
-}
-
-.profile-img-modern {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
-}
-
-.profile-img-modern:hover {
-    filter: grayscale(0%);
-}
-
-.modern-circle-divider {
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--modern-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--modern-gray);
-}
-
-/* Timeline Layout Elements */
-.modern-timeline-row {
-    border: 1px solid var(--modern-border);
-}
-
-.border-end-modern {
-    border-right: 1px solid var(--modern-border);
-}
-
-/* Form Modifiers */
-.modern-input {
-    border-radius: 0;
-    border: 1px solid var(--modern-border);
-    padding: 14px;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    background-color: var(--modern-light-bg);
-}
-
-.modern-input:focus {
-    border-color: var(--modern-dark);
-    box-shadow: none;
-    background-color: var(--white);
-}
-
-/* Responsive Fixes */
-@media screen and (max-width: 768px) {
-    .bride-groom-modern { font-size: 2.2rem; letter-spacing: 3px; }
-    .border-end-modern { border-right: none; border-bottom: 1px solid var(--modern-border); }
-    .avatar-wrapper-modern { width: 170px; height: 220px; }
-    .style-nav-modern { border-top: 1px solid rgba(255,255,255,0.1); }
-}
-
-/* Global Clean-ups */
-html {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    scroll-behavior: smooth;
-}
-
-*::-webkit-scrollbar {
-    display: none !important;
+/* Floating Music */
+.music-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: var(--white);
+  border: 1px solid var(--inv-border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--inv-dark);
+  z-index: 999;
+  cursor: pointer;
 }
