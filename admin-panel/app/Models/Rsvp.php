@@ -13,6 +13,7 @@ class Rsvp extends Model
     protected $fillable = [
         'wedding_id',
         'nama_tamu',
+        'alamat',
         'jumlah_hadir',
         'status',
         'ucapan'
