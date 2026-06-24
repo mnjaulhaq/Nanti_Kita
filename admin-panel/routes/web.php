@@ -52,5 +52,5 @@ Route::post('/wedding/{slug}/rsvp', [RsvpController::class, 'store'])->name('rsv
 
 // Katalog
 Route::get('/katalog', function () {
-    return view('katalog');
+    return view('katalog.katalog');
 });
