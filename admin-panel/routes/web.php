@@ -48,3 +48,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 // // 3. Rute Publik untuk Undangan & Kirim RSVP (Akses Tamu)
 Route::get('/wedding/{slug}', [WeddingViewController::class, 'show'])->name('wedding.show');
 Route::post('/wedding/{slug}/rsvp', [RsvpController::class, 'store'])->name('rsvp.store');
+
+// 4. Rute Katalog Undangan
+Route::get('/katalog', function(){
+    return view('katalog');
+});
