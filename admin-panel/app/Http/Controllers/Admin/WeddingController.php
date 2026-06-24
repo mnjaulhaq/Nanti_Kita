@@ -7,6 +7,7 @@ use App\Models\Wedding;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Rsvp;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class WeddingController extends Controller
 {
@@ -113,7 +114,7 @@ class WeddingController extends Controller
         // 1. Hitung total klien pengantin yang terdaftar
         $totalWeddings = Wedding::count();
 
-        // 2. Hitung akumulasi omzet kasar bisnis (Simulasi: Paket Basic 500k, Premium 1 Juta)
+        // 2. Hitung akumulasi omzet kasar bisnis (Paket Basic 500k, Premium 1 Juta)
         $totalRevenue = (Wedding::where('paket', 'basic')->count() * 500000) +
             (Wedding::where('paket', 'premium')->count() * 1000000);
 
@@ -123,8 +124,17 @@ class WeddingController extends Controller
         // 4. Ambil 4 data klien yang paling baru didaftarkan
         $recentWeddings = Wedding::latest()->take(4)->get();
 
-        // 5. Lempar semua data statistik ke halaman view dashboard
-        return view('admin.dashboard', compact('totalWeddings', 'totalRevenue', 'totalGuestsHadir', 'recentWeddings'));
+        // 5. TAMBAHAN MENTOR: Ambil semua data wedding beserta rsvps-nya untuk kebutuhan tabel pesan client
+        $weddings = Wedding::with('rsvps')->latest()->get();
+
+        // 6. Lempar semua data statistik + data weddings ke halaman view dashboard
+        return view('admin.dashboard', compact(
+            'totalWeddings',
+            'totalRevenue',
+            'totalGuestsHadir',
+            'recentWeddings',
+            'weddings' // 👈 Pastikan ini ditambahkan di compact
+        ));
     }
 
     public function globalRsvps()
@@ -133,5 +143,20 @@ class WeddingController extends Controller
         $rsvps = Rsvp::with('wedding')->latest()->get();
 
         return view('admin.rsvps.global', compact('rsvps'));
+    }
+
+    public function downloadPdf($id)
+    {
+        // Ambil data pernikahan beserta seluruh relasi RSVP-nya
+        $wedding = Wedding::with('rsvps')->findOrFail($id);
+
+        // Ambil semua data tamu untuk pernikahan ini
+        $rsvps = $wedding->rsvps;
+
+        // Load view khusus cetakan PDF dan lempar datanya
+        $pdf = Pdf::loadView('admin.weddings.pdf', compact('wedding', 'rsvps'));
+
+        // Download file PDF dengan format nama: laporan-rsvp-pria-wanita.pdf
+        return $pdf->download('laporan-rsvp-' . Str::slug($wedding->nama_pria . '-' . $wedding->nama_wanita) . '.pdf');
     }
 }

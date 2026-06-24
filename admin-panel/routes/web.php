@@ -28,20 +28,21 @@ Route::middleware('guest')->group(function () {
 // // 2. Grouping URL untuk Admin Panel NantiKita.
 // <-- 3. TAMBAHKAN middleware('auth') di grup ini agar aman
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    
-    // Halaman Utama Dashboard Admin
+
     Route::get('/', [WeddingController::class, 'dashboard'])->name('dashboard');
 
-    // RUTE BARU: RSVP Global (Taruh di atas weddings rsvps agar tidak bentrok)
     Route::get('rsvps', [WeddingController::class, 'globalRsvps'])->name('rsvps.global');
 
-    // Jalur RSVP spesifik per client
     Route::get('weddings/{id}/rsvps', [WeddingController::class, 'showRsvps'])->name('weddings.rsvps');
 
-    // Otomatis membuat rute CRUD weddings
     Route::resource('weddings', WeddingController::class);
-    
-    // <-- 4. TAMBAHKAN RUTE LOGOUT DI DALAM GRUP ADMIN
+
+    // FITUR PDF MILIKMU
+    Route::get(
+        'weddings/{id}/download-pdf',
+        [WeddingController::class, 'downloadPdf']
+    )->name('weddings.download_pdf');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
@@ -49,7 +50,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 Route::get('/wedding/{slug}', [WeddingViewController::class, 'show'])->name('wedding.show');
 Route::post('/wedding/{slug}/rsvp', [RsvpController::class, 'store'])->name('rsvp.store');
 
-// 4. Rute Katalog Undangan
-Route::get('/katalog', function(){
-    return view('katalog');
+// Katalog
+Route::get('/katalog', function () {
+    return view('katalog.katalog');
 });

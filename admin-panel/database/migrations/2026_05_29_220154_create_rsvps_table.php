@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rsvps', function (Blueprint $table) {
-        $table->id();
-        // Menghubungkan RSVP dengan data pernikahan tertentu
-        $table->foreignId('wedding_id')->constrained('weddings')->onDelete('cascade');
-        $table->string('nama_tamu');
-        $table->integer('jumlah_hadir')->default(1);
-        $table->enum('status', ['hadir', 'tidak_hadir']);
-        $table->text('ucapan')->nullable();
-        $table->timestamps();
+            $table->id();
+            // Menghubungkan RSVP dengan data pernikahan tertentu
+            $table->foreignId('wedding_id')->constrained('weddings')->onDelete('cascade');
+            $table->string('nama_tamu');
+            $table->string('alamat');
+            $table->integer('jumlah_hadir')->default(1);
+            $table->enum('status', ['hadir', 'tidak_hadir']);
+            $table->text('ucapan')->nullable();
+            $table->timestamps();
         });
     }
 
