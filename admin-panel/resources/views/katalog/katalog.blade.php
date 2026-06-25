@@ -6,25 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nanti Kita - Premium Digital Invitation</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -32,15 +20,12 @@
     <style>
       @font-face {
         font-family: "Tan Nimbus";
-        /* Lokasi font diarahkan ke folder public/fonts/ di Laravel */
         src: url("{{ asset('fonts/tan-nimbus.ttf') }}") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
 
       :root {
         --bg-color: #2f3e36;
@@ -56,7 +41,6 @@
         color: var(--light-text);
       }
 
-      /* --- BASE NAVBAR CONFIGURATION --- */
       .navbar {
         background-color: rgba(47, 62, 54, 0.96);
         backdrop-filter: blur(15px);
@@ -77,10 +61,8 @@
         height: 52px;
         width: auto;
         object-fit: contain;
-        mix-blend-mode: normal;
       }
 
-      /* --- MENU TENGAH KAPSUL DENGAN EFEK SLIDING --- */
       .navbar-center-menu {
         display: flex;
         gap: 4px;
@@ -102,13 +84,10 @@
         left: 6px;
         width: 0;
         transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-        box-shadow: none;
         z-index: 1;
       }
 
-      .nav-bg-slider.no-animation {
-        transition: none !important;
-      }
+      .nav-bg-slider.no-animation { transition: none !important; }
 
       .center-menu-item {
         color: rgba(247, 247, 247, 0.65);
@@ -122,17 +101,13 @@
         z-index: 2;
       }
 
-      .center-menu-item:hover {
-        color: #fff;
-      }
-
+      .center-menu-item:hover { color: #fff; }
       .center-menu-item.active {
         color: #ffffff !important;
         font-weight: 600;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
       }
 
-      /* --- TOMBOL HAMBURGER KAPSUL --- */
       .custom-hamburger-capsule {
         background-color: rgba(247, 247, 247, 0.06);
         border: 1px solid rgba(247, 247, 247, 0.15);
@@ -144,18 +119,13 @@
         transition: all 0.2s ease;
       }
 
-      .custom-hamburger-capsule:hover {
-        background-color: rgba(247, 247, 247, 0.12);
-      }
-
+      .custom-hamburger-capsule:hover { background-color: rgba(247, 247, 247, 0.12); }
       .custom-hamburger-capsule .menu-icon {
         color: rgba(247, 247, 247, 0.9);
         font-size: 1.2rem;
-        margin: 0;
         display: block;
       }
 
-      /* --- DROPDOWN BOX MODIFIKASI PREMIUM --- */
       .nantikita-menu {
         display: block;
         position: absolute;
@@ -195,8 +165,7 @@
         margin-bottom: 2px;
       }
 
-      .dropdown-item-link:hover,
-      .dropdown-item-link.active {
+      .dropdown-item-link:hover, .dropdown-item-link.active {
         color: #ffffff !important;
         background-color: rgba(255, 255, 255, 0.08);
         padding-right: 18px;
@@ -215,7 +184,6 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         display: block;
-        width: 100%;
         text-align: right;
       }
 
@@ -237,17 +205,9 @@
         transition: color 0.2s ease;
       }
 
-      .social-icons-box .item-bi i {
-        font-size: 1.1rem;
-        color: rgba(247, 247, 247, 0.8);
-      }
+      .social-icons-box .item-bi i { font-size: 1.1rem; }
+      .social-icons-box .item-bi:hover, .social-icons-box .item-bi:hover i { color: #bfa37a; }
 
-      .social-icons-box .item-bi:hover,
-      .social-icons-box .item-bi:hover i {
-        color: #bfa37a;
-      }
-
-      /* --- HERO HEADER --- */
       .hero-catalog {
         text-align: center;
         padding-top: 140px;
@@ -256,21 +216,15 @@
 
       .hero-catalog h2 {
         font-family: "Tan Nimbus", serif !important;
-        font-weight: normal;
         font-size: 2.6rem;
-        letter-spacing: 0px !important;
         margin-bottom: 12px;
-        color: var(--light-text);
       }
 
       .hero-catalog p {
-        font-family: "Montserrat", sans-serif;
         font-style: italic;
         color: rgba(247, 247, 247, 0.7);
-        font-size: 1rem;
       }
 
-      /* --- TEMPLATE CARD EDITORIAL --- */
       .template-card {
         padding: 12px;
         border: none;
@@ -303,19 +257,10 @@
         height: 100%;
         object-fit: cover;
         object-position: top center;
-        transition: transform 0.4s ease;
-      }
-
-      .template-card img {
-        height: 500px;
-        object-fit: cover;
-        width: 100%;
         transition: transform 0.6s ease;
       }
 
-      .template-card:hover img {
-        transform: scale(1.05);
-      }
+      .template-card:hover img { transform: scale(1.05); }
 
       .template-card .p-2-custom {
         flex-grow: 1;
@@ -340,17 +285,11 @@
         font-style: italic;
         font-size: 0.85rem;
         color: #a98467;
-        font-weight: 500;
         margin-bottom: 4px;
         text-align: center;
       }
 
-      /* --- BUTTONS --- */
-      .template-btns {
-        margin-top: 8px;
-        margin-bottom: 4px;
-      }
-
+      .template-btns { margin-top: 8px; margin-bottom: 4px; }
       .template-btns .btn {
         padding: 11px 15px;
         font-size: 11px;
@@ -386,7 +325,6 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
-      /* --- SECTION HARGA & PAKET --- */
       .price-card {
         background-color: var(--card-bg);
         border-radius: 24px;
@@ -399,7 +337,6 @@
         height: 100%;
         position: relative;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        overflow: hidden;
       }
 
       .price-card:hover {
@@ -441,55 +378,29 @@
         margin-bottom: 22px;
       }
 
-      .price-card.popular .price-header {
-        border-bottom-color: rgba(247, 247, 247, 0.08);
-      }
-
+      .price-card.popular .price-header { border-bottom-color: rgba(247, 247, 247, 0.08); }
       .package-name {
         font-family: "Playfair Display", serif;
         font-weight: 700;
         font-size: 1.15rem;
         color: #2f3e36;
-        letter-spacing: 0.5px;
         margin-bottom: 12px;
-        transition: color 0.3s ease;
       }
 
-      .price-card:hover .package-name {
-        color: #a98467;
-      }
-
-      .price-card.popular .package-name {
-        color: var(--accent-gold);
-      }
-
-      .price-card.popular:hover .package-name {
-        color: #ffffff;
-      }
+      .price-card:hover .package-name { color: #a98467; }
+      .price-card.popular .package-name { color: var(--accent-gold); }
+      .price-card.popular:hover .package-name { color: #ffffff; }
 
       .price-amount {
-        font-family: "Montserrat", sans-serif;
         font-weight: 800;
         font-size: 1.9rem;
         color: #2f3e36;
       }
 
-      .price-card.popular .price-amount {
-        color: #f7f7f7;
-      }
+      .price-card.popular .price-amount { color: #f7f7f7; }
+      .price-sub { font-size: 0.8rem; color: #a98467; margin-top: 4px; }
 
-      .price-sub {
-        font-size: 0.8rem;
-        color: #a98467;
-        margin-top: 4px;
-      }
-
-      .price-features {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 30px 0;
-      }
-
+      .price-features { list-style: none; padding: 0; margin: 0 0 30px 0; }
       .price-features li {
         font-size: 0.9rem;
         color: #4a5750;
@@ -500,32 +411,17 @@
         transition: transform 0.2s ease;
       }
 
-      .price-card:hover .price-features li {
-        transform: translateX(2px);
-      }
+      .price-card:hover .price-features li { transform: translateX(2px); }
+      .price-card.popular .price-features li { color: rgba(247, 247, 247, 0.85); }
 
-      .price-card.popular .price-features li {
-        color: rgba(247, 247, 247, 0.85);
-      }
-
-      .price-features li i.bi-check-circle-fill {
-        color: #2f3e36;
-        transition: transform 0.3s ease;
-      }
-
-      .price-card:hover .price-features li i.bi-check-circle-fill {
-        transform: scale(1.15);
-      }
-
-      .price-card.popular .price-features li i.bi-check-circle-fill {
-        color: var(--accent-gold);
-      }
+      .price-features li i.bi-check-circle-fill { color: #2f3e36; transition: transform 0.3s ease; }
+      .price-card:hover .price-features li i.bi-check-circle-fill { transform: scale(1.15); }
+      .price-card.popular .price-features li i.bi-check-circle-fill { color: var(--accent-gold); }
 
       .btn-price-outline {
         display: block;
         width: 100%;
         padding: 13px;
-        background-color: transparent;
         color: #2f3e36;
         border: 1px solid #2f3e36;
         border-radius: 12px;
@@ -533,16 +429,15 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         text-align: center;
         text-decoration: none;
+        transition: all 0.3s ease;
       }
 
       .btn-price-outline:hover {
         background-color: #2f3e36;
         color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(47, 62, 54, 0.2);
       }
 
       .btn-price-solid {
@@ -557,21 +452,17 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         text-align: center;
         text-decoration: none;
-        box-shadow: 0 4px 15px rgba(226, 194, 149, 0.15);
+        transition: all 0.3s ease;
       }
 
       .btn-price-solid:hover {
         background-color: #ffffff;
         border-color: #ffffff;
-        color: #2f3e36;
         transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
       }
 
-      /* --- SECTION CARA ORDER --- */
       .step-card {
         background-color: var(--card-bg);
         border-radius: 22px;
@@ -581,8 +472,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        position: relative;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 0.4s ease;
       }
 
       .step-card:hover {
@@ -594,9 +484,6 @@
       .step-card.highlight {
         border: 1px dashed var(--accent-gold);
         background-color: rgba(247, 247, 247, 0.97);
-      }
-      .step-card.highlight:hover {
-        border-style: solid;
       }
 
       .step-number {
@@ -611,176 +498,25 @@
         display: inline-block;
       }
 
-      .step-card:hover .step-number {
-        transform: scale(1.1) rotate(-3deg);
-        color: #2f3e36;
-      }
+      .step-card:hover .step-number { transform: scale(1.1) rotate(-3deg); color: #2f3e36; }
+      .step-title { font-weight: 700; font-size: 1.1rem; color: #2f3e36; margin-bottom: 12px; }
+      .step-desc { font-size: 0.88rem; color: #5c6b62; line-height: 1.6; margin: 0; }
 
-      .step-card.highlight .step-number {
-        color: #2f3e36;
-      }
-      .step-card.highlight:hover .step-number {
-        color: var(--accent-gold);
-      }
-
-      .step-title {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: #2f3e36;
-        margin-bottom: 12px;
-        letter-spacing: 0.5px;
-        transition: color 0.3s ease;
-      }
-      .step-card:hover .step-title {
-        color: #a98467;
-      }
-
-      .step-desc {
-        font-size: 0.88rem;
-        color: #5c6b62;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      /* --- RESPONSIVE OPTIMIZATION --- */
       @media (max-width: 767px) {
-        .price-card {
-          padding: 28px 20px;
-          border-radius: 20px;
-        }
-        .price-amount {
-          font-size: 1.7rem;
-        }
-        .price-features li {
-          font-size: 0.85rem;
-          margin-bottom: 10px;
-        }
-
-        .step-card {
-          padding: 24px 20px;
-          flex-direction: row;
-          gap: 18px;
-          align-items: flex-start;
-        }
-
-        .step-number {
-          font-size: 2.2rem;
-          margin-bottom: 0;
-        }
-
-        .step-card:hover .step-number {
-          transform: scale(1.05);
-        }
-
-        .navbar {
-          padding: 10px 20px;
-        }
-        .navbar-center-menu {
-          display: none;
-        }
-        .mobile-menu-links {
-          display: block;
-        }
-        .nantikita-menu {
-          right: 20px;
-          top: 70px;
-          width: 200px;
-        }
-
-        .hero-catalog {
-          padding: 110px 30px 20px 30px !important;
-        }
-
-        .hero-catalog h2 {
-          font-size: 1.6rem !important;
-          letter-spacing: 1px !important;
-          line-height: 1.3;
-        }
-
-        .hero-catalog p {
-          font-size: 0.85rem !important;
-          line-height: 1.4;
-        }
-
-        .container-katalog-custom {
-          padding-left: 24px !important;
-          padding-right: 24px !important;
-        }
-
-        .row.g-3 {
-          --bs-gutter-x: 10px !important;
-          --bs-gutter-y: 12px !important;
-        }
-
-        .card-img-wrapper {
-          aspect-ratio: 3 / 3.6;
-          max-height: 360px;
-        }
-
-        .template-card img {
-          height: auto !important;
-          aspect-ratio: 3/4 !important;
-        }
-
-        .template-card .p-2-custom {
-          padding: 12px 5px 5px 5px !important;
-        }
-
-        .template-title {
-          font-size: 9.5px !important;
-          letter-spacing: 0px !important;
-          margin-bottom: 10px;
-          line-height: 1.3;
-          padding-left: 6px !important;
-          padding-right: 6px !important;
-          word-break: break-word;
-          text-align: center;
-        }
-
-        .edition-label {
-          font-size: 8px !important;
-          margin-bottom: 2px;
-          letter-spacing: 0px !important;
-          text-align: center;
-        }
-
-        .template-btns {
-          margin-top: 4px;
-          margin-bottom: 2px;
-        }
-
-        .template-btns .btn {
-          padding: 5px 2px !important;
-          font-size: 8px !important;
-          letter-spacing: 0px;
-        }
-        .template-btns .btn-primary {
-          background-color: transparent;
-          color: #2f3e36;
-          border: 1px solid #2f3e36;
-        }
+        .price-card { padding: 28px 20px; border-radius: 20px; }
+        .price-amount { font-size: 1.7rem; }
+        .step-card { padding: 24px 20px; flex-direction: row; gap: 18px; align-items: flex-start; }
+        .step-number { font-size: 2.2rem; }
+        .navbar { padding: 10px 20px; }
+        .navbar-center-menu { display: none; }
+        .nantikita-menu { right: 20px; top: 70px; width: 200px; }
+        .hero-catalog { padding: 110px 30px 20px 30px !important; }
+        .hero-catalog h2 { font-size: 1.6rem !important; line-height: 1.3; }
+        .template-card .p-2-custom { padding: 12px 5px 5px 5px !important; }
+        .template-title { font-size: 9.5px !important; margin-bottom: 10px; word-break: break-word; }
+        .template-btns .btn { padding: 5px 2px !important; font-size: 8px !important; }
       }
 
-      @media (min-width: 768px) {
-        .custom-hamburger-capsule {
-          display: flex !important;
-        }
-
-        .nantikita-menu {
-          right: 40px;
-          top: 75px;
-        }
-
-        .mobile-menu-links {
-          display: none;
-        }
-        .dropdown-social-wrapper {
-          padding: 5px;
-        }
-      }
-
-      /* --- FLOATING WHATSAPP --- */
       .whatsapp-float {
         position: fixed;
         width: 60px;
@@ -797,31 +533,13 @@
         transition: all 0.3s ease;
       }
 
-      .whatsapp-float:hover {
-        transform: scale(1.1) rotate(8deg);
-      }
+      .whatsapp-float:hover { transform: scale(1.1) rotate(8deg); }
+      .whatsapp-float img { width: 30px; height: 30px; }
 
-      .whatsapp-float img {
-        width: 30px;
-        height: 30px;
-      }
-
-      /* --- SCROLL HOVER AUTO RADAR --- */
-      .price-card.auto-hover,
-      .step-card.auto-hover {
+      .price-card.auto-hover, .step-card.auto-hover {
         transform: translateY(-10px) !important;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18) !important;
         border-color: rgba(47, 62, 54, 0.15) !important;
-      }
-
-      .price-card.popular.auto-hover {
-        border-color: var(--accent-gold) !important;
-        box-shadow: 0 20px 45px rgba(226, 194, 149, 0.25) !important;
-      }
-
-      .price-card,
-      .step-card {
-        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
       }
     </style>
   </head>
@@ -829,11 +547,7 @@
     <nav class="navbar fixed-top">
       <div class="container-fluid container-navbar-custom">
         <a class="navbar-brand-logo" href="#">
-          <img
-            src="{{ asset('Logo Nantikita.png') }}"
-            alt="Logo Nanti Kita"
-            class="nav-logo-img"
-          />
+          <img src="{{ asset('images/Logo NantiKita.png') }}" alt="Logo Nanti Kita" class="nav-logo-img" />
         </a>
 
         <div class="navbar-center-menu">
@@ -843,11 +557,7 @@
           <a class="center-menu-item" href="#cara-order">Cara Order</a>
         </div>
 
-        <button
-          class="custom-hamburger-capsule"
-          type="button"
-          onclick="toggleMenu()"
-        >
+        <button class="custom-hamburger-capsule" type="button" onclick="toggleMenu()">
           <i class="bi bi-list menu-icon"></i>
         </button>
 
@@ -862,18 +572,10 @@
           <div class="dropdown-social-wrapper">
             <span>Hubungi Kami:</span>
             <div class="social-icons-box">
-              <a
-                class="item-bi"
-                href="https://www.instagram.com/nantikitadigitalwedding"
-                target="_blank"
-              >
+              <a class="item-bi" href="https://www.instagram.com/nantikitadigitalwedding" target="_blank">
                 <i class="bi bi-instagram"></i> Instagram
               </a>
-              <a
-                class="item-bi"
-                href="https://wa.me/628976337088"
-                target="_blank"
-              >
+              <a class="item-bi" href="https://wa.me/628976337088" target="_blank">
                 <i class="bi bi-whatsapp"></i> WhatsApp
               </a>
             </div>
@@ -887,24 +589,22 @@
       <p>Temukan desain undangan digital impian Anda bersama Nanti Kita</p>
     </div>
 
-    <div id="katalog" class="container my-5 container-katalog-custom">
+    <div id="katalog" class="container my-5">
       <div class="row g-3">
+        
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/rustic/assets/img/rustic-thumbnail.jpeg') }}"
-                alt="rustic"
-              />
+              <img src="{{ asset('themes/rustic/assets/img/rustic-thumbnail.jpeg') }}" alt="rustic" />
             </div>
             <div class="p-2-custom">
               <div class="template-title">RUSTIC</div>
               <div class="button-group-wrapper">
                 <div class="template-btns">
-                  <a href="{{ asset('temp/rustic/rustic.html') }}" class="btn btn-primary">Lihat Basic</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=rustic&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
                 </div>
                 <div class="template-btns">
-                  <a href="{{ asset('temp/rustic/rustic-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=rustic&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
                 </div>
               </div>
             </div>
@@ -914,10 +614,7 @@
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/2modern/assets/img/cover-modern.jpg') }}"
-                alt="Modern Minimalist"
-              />
+              <img src="{{ asset('themes/modern/assets/img/cover-modern.jpg') }}" alt="Modern Minimalist" />
             </div>
             <div class="p-2-custom">
               <div>
@@ -926,10 +623,10 @@
               </div>
               <div class="button-group-wrapper">
                 <div class="template-btns">
-                  <a href="{{ asset('temp/2modern/modern.html') }}" class="btn btn-primary">Lihat Basic</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=modern&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
                 </div>
                 <div class="template-btns">
-                  <a href="{{ asset('temp/2modern/modern-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=modern&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
                 </div>
               </div>
             </div>
@@ -939,19 +636,16 @@
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/3sage&botanical/assets/img/cover-sage-botanical.jpg') }}"
-                alt="sage green & botanical"
-              />
+              <img src="{{ asset('themes/sage/assets/img/cover-sage-botanical.jpg') }}" alt="sage green & botanical" />
             </div>
             <div class="p-2-custom">
               <div class="template-title">SAGE GREEN & BOTANICAL</div>
               <div class="button-group-wrapper">
                 <div class="template-btns">
-                  <a href="{{ asset('temp/3sage&botanical/sage.html') }}" class="btn btn-primary">Lihat Basic</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=sage&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
                 </div>
                 <div class="template-btns">
-                  <a href="{{ asset('temp/3sage&botanical/sage-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=sage&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
                 </div>
               </div>
             </div>
@@ -961,19 +655,16 @@
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/4midnightRomance/assets/img/cover-midnight-romance.jpg') }}"
-                alt="Midnight Romance"
-              />
+              <img src="{{ asset('themes/japandi/assets/img/cover-japandi.jpg') }}" alt="japandi" />
             </div>
             <div class="p-2-custom">
-              <div class="template-title">MIDNIGHT ROMANCE</div>
+              <div class="template-title">JAPANDI</div>
               <div class="button-group-wrapper">
                 <div class="template-btns">
-                  <a href="{{ asset('temp/4midnightRomance/midnight.html') }}" class="btn btn-primary">Lihat Basic</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=japandi&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
                 </div>
                 <div class="template-btns">
-                  <a href="{{ asset('temp/4midnightRomance/midnight-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=japandi&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
                 </div>
               </div>
             </div>
@@ -983,57 +674,45 @@
         <div class="col-6 col-md-4 col-lg-4">
           <div class="template-card">
             <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/5japandi/assets/img/cover-japandi.jpg') }}"
-                alt="Japandi Style"
-              />
-            </div>
-            <div class="p-2-custom">
-              <div class="template-title">JAPANDI STYLE</div>
-              <div class="button-group-wrapper">
-                <div class="template-btns">
-                  <a href="{{ asset('temp/5japandi/japandi.html') }}" class="btn btn-primary">Lihat Basic</a>
-                </div>
-                <div class="template-btns">
-                  <a href="{{ asset('temp/5japandi/japandi-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4 col-lg-4">
-          <div class="template-card">
-            <div class="card-img-wrapper">
-              <img
-                src="{{ asset('temp/6cinematic/assets/img/cover-cinematic.jpg') }}"
-                alt="Cinematic"
-              />
+              <img src="{{ asset('themes/cinematic/assets/img/cover-cinematic.jpg') }}" alt="cinematic" />
             </div>
             <div class="p-2-custom">
               <div class="template-title">CINEMATIC</div>
               <div class="button-group-wrapper">
                 <div class="template-btns">
-                  <a href="{{ asset('temp/6cinematic/cinematic.html') }}" class="btn btn-primary">Lihat Basic</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=cinematic&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
                 </div>
                 <div class="template-btns">
-                  <a href="{{ asset('temp/6cinematic/cinematic-premium.html') }}" class="btn btn-secondary">Lihat Premium</a>
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=cinematic&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <div class="template-card">
+            <div class="card-img-wrapper">
+              <img src="{{ asset('themes/midnight/assets/img/cover-midnight.jpg') }}" alt="midnight" />
+            </div>
+            <div class="p-2-custom">
+              <div class="template-title">MIDNIGHT & ROMANCE</div>
+              <div class="button-group-wrapper">
+                <div class="template-btns">
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=midnight&paket=basic&from_katalog=true') }}" class="btn btn-primary" target="_blank">Lihat Basic</a>
+                </div>
+                <div class="template-btns">
+                  <a href="{{ url('/wedding/budi-dan-riri?theme=midnight&paket=premium&from_katalog=true') }}" class="btn btn-secondary" target="_blank">Lihat Premium</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
 
-    <div id="harga" class="container my-5 container-katalog-custom">
-      <div class="hero-catalog text-center" style="padding-top: 40px; padding-bottom: 40px">
-        <h2 style="font-family: 'Tan Nimbus', serif !important; font-size: 2.2rem;">HARGA & PAKET</h2>
-        <p style="font-family: 'Playfair Display', serif; font-style: italic; color: rgba(247, 247, 247, 0.7);">
-          Pilih paket terbaik untuk momen spesial Anda bersama Nanti Kita
-        </p>
-      </div>
-
+    <div id="harga" class="container my-5">
       <div class="row g-4 justify-content-center align-items-stretch">
         <div class="col-12 col-md-5 col-lg-4 scroll-trigger">
           <div class="price-card">
@@ -1086,14 +765,7 @@
       </div>
     </div>
 
-    <div id="cara-order" class="container my-5 container-katalog-custom">
-      <div class="hero-catalog text-center" style="padding-top: 40px; padding-bottom: 40px">
-        <h2 style="font-family: 'Tan Nimbus', serif !important; font-size: 2.2rem;">CARA ORDER</h2>
-        <p style="font-family: 'Playfair Display', serif; font-style: italic; color: rgba(247, 247, 247, 0.7);">
-          Proses mudah dan cepat untuk mewujudkan undangan digital impian Anda
-        </p>
-      </div>
-
+    <div id="cara-order" class="container my-5">
       <div class="row g-4 step-timeline-row">
         <div class="col-12 col-md-4 scroll-trigger">
           <div class="step-card">
@@ -1132,13 +804,11 @@
     </a>
 
     <script>
-      // 1. BUKA/TUTUP TOMBOL HAMBURGER
       function toggleMenu() {
         var dropdown = document.getElementById("myDropdown");
         dropdown.classList.toggle("show");
       }
 
-      // 2. MENUTUP DROPDOWN OTOMATIS JIKA KLIK DI LUAR
       window.onclick = function (e) {
         var dropdown = document.getElementById("myDropdown");
         if (dropdown && dropdown.classList.contains("show")) {
@@ -1149,7 +819,6 @@
         }
       };
 
-      // 3. OTOMATIS MEMINDAHKAN OVAL DI MENU TENGAH (FIXED NO BLINK)
       document.addEventListener("DOMContentLoaded", function () {
         const menuItems = document.querySelectorAll(".center-menu-item");
         const slider = document.querySelector(".nav-bg-slider");
@@ -1187,7 +856,6 @@
         });
       });
 
-      // 4. SCRIPT AUTO HOVER ON SCROLL FOR MOBILE & DESKTOP
       const scrollTriggers = document.querySelectorAll(".scroll-trigger");
       const hoverObserverOptions = {
         root: null,

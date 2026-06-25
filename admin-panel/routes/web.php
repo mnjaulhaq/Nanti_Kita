@@ -36,15 +36,21 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', [WeddingController::class, 'dashboard'])->name('dashboard');
 
     // RSVP Global (Taruh di atas weddings rsvps agar tidak bentrok)
+    Route::get('/', [WeddingController::class, 'dashboard'])->name('dashboard');
+
     Route::get('rsvps', [WeddingController::class, 'globalRsvps'])->name('rsvps.global');
 
-    // Jalur RSVP spesifik per client
     Route::get('weddings/{id}/rsvps', [WeddingController::class, 'showRsvps'])->name('weddings.rsvps');
 
-    // Otomatis membuat rute CRUD weddings
     Route::resource('weddings', WeddingController::class);
 
     // Jalur Keluar Sistem / Logout
+    // FITUR PDF MILIKMU
+    Route::get(
+        'weddings/{id}/download-pdf',
+        [WeddingController::class, 'downloadPdf']
+    )->name('weddings.download_pdf');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
@@ -55,6 +61,11 @@ Route::post('/wedding/{slug}/rsvp', [RsvpController::class, 'store'])->name('rsv
 // 5. Rute Katalog Undangan
 Route::get('/katalog', function () {
     return view('katalog');
+});
+
+// Katalog
+Route::get('/katalog', function () {
+    return view('katalog.katalog');
 });
 
 // Hapus atau komen route ini kalau UI sudah beres dan mau production
