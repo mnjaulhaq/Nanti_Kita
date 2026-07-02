@@ -44,10 +44,11 @@
     </div>
 
     <!-- LAYER KONTEN UTAMA (Sembunyi di Awal) -->
-    <div id="theme-konten-utama" class="hidden min-h-screen flex flex-col items-center p-6 space-y-12 pb-24">
+    <div id="theme-konten-utama" class="hidden min-h-screen flex flex-col items-center p-6 space-y-12 pb-24 {{ request()->has('from_katalog') ? 'pt-20' : '' }}">
 
         <!-- Blok Mempelai & Informasi Peta Lokasi -->
-        <div class="max-w-xl w-full text-center py-12 bg-white/40 border border-[#d1c2b0] rounded-2xl p-6 shadow-xs mt-12 space-y-6">
+        <div
+            class="max-w-xl w-full text-center py-12 bg-white/40 border border-[#d1c2b0] rounded-2xl p-6 shadow-xs mt-12 space-y-6">
             <div>
                 <h2 class="font-wedding text-5xl text-[#4a3b2c] mb-4">Mempelai Pernikahan</h2>
                 <p class="text-lg font-semibold text-gray-800">{{ $wedding->nama_pria }}</p>
@@ -62,31 +63,38 @@
                 </p>
 
                 <!-- Wadah Pembungkus Mini Maps Statis yang Bisa Diklik -->
-                <div class="max-w-xs mx-auto overflow-hidden rounded-xl border border-[#d1c2b0] shadow-xs group transition-all duration-300 hover:shadow-md">
+                <div
+                    class="max-w-xs mx-auto overflow-hidden rounded-xl border border-[#d1c2b0] shadow-xs group transition-all duration-300 hover:shadow-md">
                     <!-- Link langsung mengarah ke URL Google Maps hasil input admin panel -->
-                    <a href="{{ $wedding->lokasi_acara }}" target="_blank" rel="noopener noreferrer" class="block relative">
-                        
+                    <a href="{{ $wedding->lokasi_acara }}" target="_blank" rel="noopener noreferrer"
+                        class="block relative">
+
                         <!-- Gambar Representasi Peta Visual -->
-                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80" 
-                             alt="Peta Lokasi" 
-                             class="w-full h-32 object-cover filter sepia-[0.2] group-hover:scale-105 transition-transform duration-500">
-                        
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=400&q=80"
+                            alt="Peta Lokasi"
+                            class="w-full h-32 object-cover filter sepia-[0.2] group-hover:scale-105 transition-transform duration-500">
+
                         <!-- Lapisan Overlay Hover Ringan -->
-                        <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center transition-colors group-hover:bg-black/30">
-                            <span class="bg-white/90 text-[#4a3b2c] text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider">
+                        <div
+                            class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center transition-colors group-hover:bg-black/30">
+                            <span
+                                class="bg-white/90 text-[#4a3b2c] text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1 uppercase tracking-wider">
                                 <i class="bi bi-map"></i> Lihat di Google Maps
                             </span>
                         </div>
                     </a>
                 </div>
-                
-                <p class="text-[10px] text-gray-400 italic">*Klik gambar peta di atas untuk membuka navigasi rute langsung</p>
+
+                <p class="text-[10px] text-gray-400 italic">*Klik gambar peta di atas untuk membuka navigasi rute
+                    langsung</p>
             </div>
         </div>
 
         <!-- Blok Input Ucapan / Doa Restu (RSVP Bersih) -->
-        <div class="bg-white/80 backdrop-blur-sm border border-[#d1c2b0] p-6 rounded-xl max-w-md w-full shadow-sm text-left">
-            <h4 class="text-lg font-semibold text-[#4a3b2c] mb-4 text-center tracking-wide border-b border-[#d1c2b0]/40 pb-2">
+        <div
+            class="bg-white/80 backdrop-blur-sm border border-[#d1c2b0] p-6 rounded-xl max-w-md w-full shadow-sm text-left">
+            <h4
+                class="text-lg font-semibold text-[#4a3b2c] mb-4 text-center tracking-wide border-b border-[#d1c2b0]/40 pb-2">
                 Berikan Ucapan & Doa Restu
             </h4>
 
@@ -101,7 +109,8 @@
 
                 <!-- DATA UTAMA: HANYA KOLOM UCAPAN -->
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-widest text-[#8c765c] mb-2 text-center">
+                    <label
+                        class="block text-xs font-semibold uppercase tracking-widest text-[#8c765c] mb-2 text-center">
                         ✨ Tulis Ucapan & Doa Restu
                     </label>
                     <textarea name="ucapan" rows="4" required
@@ -117,9 +126,20 @@
             </form>
         </div>
 
-        <a href="{{ url('/katalog') }}" class="text-xs text-gray-400 hover:text-gray-600 transition underline">
-            ⬅️ Kembali ke Halaman Katalog
-        </a>
+        <!-- 🔥 BARU: NAVIGASI PREMIUM KATALOG (Melayang di Paling Atas) -->
+        @if (request()->has('from_katalog'))
+            <div
+                class="fixed top-0 inset-x-0 bg-white/80 backdrop-blur-md border-b border-[#d1c2b0]/40 z-50 px-4 py-3 flex items-center justify-between shadow-xs">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <p class="text-[11px] font-medium uppercase tracking-wider text-gray-500">Mode Demo Tema: Rustic</p>
+                </div>
+                <a href="{{ url('/katalog') }}"
+                    class="bg-[#4a3b2c] hover:bg-[#33281d] text-white text-[11px] font-semibold px-4 py-1.5 rounded-full shadow-sm transition flex items-center gap-1 uppercase tracking-wider">
+                    <i class="bi bi-arrow-left-short text-base leading-none"></i> Kembali ke Katalog
+                </a>
+            </div>
+        @endif
     </div>
 
     <!-- JAVASCRIPT LOGIKA SAKLAR HALAMAN -->
@@ -131,6 +151,17 @@
             document.getElementById('theme-konten-utama').classList.remove('hidden');
             window.scrollTo(0, 0);
         }
+
+        // 🔥 LOGIKA SAKTI: BAJAK TOMBOL BACK BAWAAN HP / BROWSER LAPTOP
+        @if(request()->has('from_katalog'))
+            // Daftarkan state palsu ke dalam history browser agar ketika tombol back ditekan, browser tidak langsung menutup halaman
+            history.pushState(null, null, window.location.href);
+            
+            window.addEventListener('popstate', function (event) {
+                // Ketika tombol back HP/Laptop ditekan, paksa browser redirect ke halaman katalog
+                window.location.href = "{{ url('/katalog') }}";
+            });
+        @endif
     </script>
 </body>
 
